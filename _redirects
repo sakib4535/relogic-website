@@ -6,3 +6,7 @@
 /research/startups     /research/startups/index.html     200
 /research/enterprise   /research/enterprise/index.html   200
 /people/:slug          /people/:slug/index.html          200
+/news                  /news/index.html                  200
+
+/news/blogs/:slug       /news/blogs/:slug/index.html       200
+/news/updates/:slug     /news/updates/:slug/index.html     200

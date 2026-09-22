@@ -524,10 +524,10 @@
       filter: saturate(1.08) brightness(1.03);
     }
     .area-card.selected img { transform: scale(1.045); filter: saturate(1.06) brightness(.88); }
-    .area-card-text { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; padding: 20px 18px 18px; text-align: left; }
+    .area-card-text { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; padding: 22px 18px 18px; text-align: left; background: linear-gradient(180deg, transparent, rgba(4,8,18,.92) 46%); }
     .area-card-kicker { color: #9beaf7; font-size: 7px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-    .area-card h3 { margin: 7px 0 5px; font: 700 17px/1.05 "Space Grotesk"; letter-spacing: -.025em; }
-    .area-card p { margin: 0; color: #8ca0ba; font-size: 8.8px; line-height: 1.5; }
+    .area-card h3 { margin: 7px 0 6px; font: 700 20px/1.08 "Space Grotesk"; letter-spacing: -.03em; color: #f7fbff; }
+    .area-card p { margin: 0; color: #d5e4f4; font-size: 12px; line-height: 1.45; }
     .area-card-badge {
       position: absolute;
       top: 13px;
@@ -568,7 +568,9 @@
     .caption-index { min-width: 70px; text-align: right; color: #53647d; font: 700 11px/1 "Space Grotesk"; }
     .caption-index strong { display: block; color: #dbeaf5; font-size: 22px; margin-bottom: 5px; }
 
-    .carousel-hint {
+    .carousel-hint, #hintTitle, .mouse-icon { display: none !important; visibility: hidden !important; }
+    .carousel-hint-REMOVED {
+      display: none !important;
       position: absolute;
       z-index: 22;
       left: 50%;
@@ -914,7 +916,8 @@
       .carousel-caption { grid-template-columns: 1fr; }
       .caption-index { text-align: left; display: flex; gap: 8px; align-items: baseline; }
       .caption-index strong { display: inline; }
-      .carousel-hint { display: none; }
+      .carousel-hint, #hintTitle, .mouse-icon { display: none !important; visibility: hidden !important; }
+    .carousel-hint-REMOVED { display: none; }
       .route-grid { grid-template-columns: 1fr; }
       .route-head { flex-direction: column; gap: 5px; }
       .about-main { min-height: 340px; }
@@ -935,7 +938,9 @@
       .reveal { opacity: 1; transform: none; }
       #threadCanvas { opacity: .35; }
     }
-  </style>
+  
+    .carousel-toolbar, .carousel-live { display: none !important; }
+    </style>
 <style id="relogic-restored-ui-styles">
 /* Restored collaboration marquee */
         .partners-marquee {
@@ -2034,6 +2039,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         <a href="services/">Services</a>
         <a href="projects/">Digital Product</a>
         <a href="people/">Our People</a>
+        <a href="news/">News / Blogs</a>
       </div>
 
       <div class="nav-actions">
@@ -2048,6 +2054,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       <a href="services/">Services</a>
       <a href="projects/">Digital Product</a>
       <a href="people/">Our People</a>
+      <a href="news/">News / Blogs</a>
       <a href="#project-intake">Contact</a>
     </div>
   </div>
@@ -2100,10 +2107,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
               <div class="carousel-ambient"></div>
               <div class="carousel-scene" id="carouselScene"></div>
 
-              <div class="carousel-hint">
-                <span class="mouse-icon"><i></i></span>
-                <strong id="hintTitle">Generative AI</strong>
-              </div>
+
             </div>
 
             <div class="carousel-caption">
@@ -3505,7 +3509,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
           <a href="#home" class="brand"><span class="brand-mark"><img src="images/team/relogic-logo-transparent.png" alt="Relogic Labs"></span></a>
           <p class="footer-copy">Research, AI, data intelligence and digital products for situations where the answer has to be more than impressive. It has to be useful.</p>
         </div>
-        <div class="footer-links"><a href="#about">About</a><a href="services/">Services</a><a href="research/">Research</a><a href="projects/">Digital Product</a><a href="people/">Our People</a><a href="#project-intake">Contact</a></div>
+        <div class="footer-links"><a href="#about">About</a><a href="services/">Services</a><a href="research/">Research</a><a href="projects/">Digital Product</a><a href="people/">Our People</a><a href="news/">News / Blogs</a><a href="#project-intake">Contact</a></div>
       </div>
       <div class="copyright">© 2026 Relogic Solutions. Built around evidence, data and useful intelligence.</div>
     </div>
@@ -4257,7 +4261,6 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       const captionCopy = document.getElementById("captionCopy");
       const captionIndex = document.getElementById("captionIndex");
       const captionTotal = document.getElementById("captionTotal");
-      const hintTitle = document.getElementById("hintTitle");
 
       let selectedIndex = 0;
       let visualPosition = 0;
@@ -4266,7 +4269,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       let lastFrameTime = 0;
       let autoplayFrame = null;
       let autoplayLast = 0;
-      let isPlaying = !reduceMotion;
+      let isPlaying = true;
       let speed = 2;
       let viewMode = "orbit";
       let pointerStart = null;
@@ -4303,12 +4306,11 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
 
       function updateCaption() {
         const item = workAreas[selectedIndex];
-        captionKicker.textContent = item.kicker;
-        captionTitle.textContent = item.title;
-        captionCopy.textContent = item.description;
-        captionIndex.textContent = String(selectedIndex + 1).padStart(2, "0");
-        captionTotal.textContent = "/ " + String(workAreas.length).padStart(2, "0");
-        hintTitle.textContent = item.short;
+        if (captionKicker) captionKicker.textContent = item.kicker;
+        if (captionTitle) captionTitle.textContent = item.title;
+        if (captionCopy) captionCopy.textContent = item.description;
+        if (captionIndex) captionIndex.textContent = String(selectedIndex + 1).padStart(2, "0");
+        if (captionTotal) captionTotal.textContent = "/ " + String(workAreas.length).padStart(2, "0");
       }
 
       function updateCardPositions(position) {
@@ -4416,13 +4418,13 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
 
       function restartAutoplay() {
         cancelAutoplay();
-        if (!isPlaying || reduceMotion) return;
+        if (!isPlaying) return;
         autoplayLast = performance.now();
 
         function advance(now) {
           const elapsed = Math.min(34, now - autoplayLast);
           autoplayLast = now;
-          targetPosition -= elapsed * .00015 * speed;
+          targetPosition -= elapsed * .00028 * speed;
           startCarouselAnimation();
           autoplayFrame = requestAnimationFrame(advance);
         }
@@ -4430,11 +4432,14 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       }
 
       function setPlaying(value) {
-        isPlaying = value && !reduceMotion;
-        playToggle.classList.toggle("active", isPlaying);
-        playToggle.setAttribute("aria-pressed", String(isPlaying));
-        playToggle.querySelector("i").className = isPlaying ? "fa-solid fa-pause" : "fa-solid fa-play";
-        playLabel.textContent = isPlaying ? "Auto play" : "Play";
+        isPlaying = !!value;
+        if (playToggle) {
+          playToggle.classList.toggle("active", isPlaying);
+          playToggle.setAttribute("aria-pressed", String(isPlaying));
+          var icon = playToggle.querySelector("i");
+          if (icon) icon.className = isPlaying ? "fa-solid fa-pause" : "fa-solid fa-play";
+        }
+        if (playLabel) playLabel.textContent = isPlaying ? "Auto play" : "Play";
         restartAutoplay();
       }
 
@@ -4450,13 +4455,8 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       });
 
       viewport.addEventListener("wheel", function (event) {
-        event.preventDefault();
-        let dominant = Math.abs(event.deltaY) >= Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
-        if (!dominant) return;
-        const contribution = -Math.max(-140, Math.min(140, dominant)) / 145;
-        targetPosition += contribution;
-        startCarouselAnimation();
-      }, { passive: false });
+        return;
+      }, { passive: true });
 
       viewport.addEventListener("pointerdown", function (event) {
         pointerStart = event.clientX;
@@ -4500,7 +4500,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       renderCarouselCards();
       updateCaption();
       updateCardPositions(visualPosition);
-      setPlaying(isPlaying);
+      try { setPlaying(true); } catch (e) { isPlaying = true; restartAutoplay(); }
 
       /* THREAD FIELD */
       const canvas = document.getElementById("threadCanvas");
