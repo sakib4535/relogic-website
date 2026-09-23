@@ -76,6 +76,7 @@ a.person-card h3 {
 .brand {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
   min-width: max-content;
 }
 
@@ -84,19 +85,25 @@ a.person-card h3 {
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: transparent;
   border: none;
   box-shadow: none;
   overflow: visible;
+  flex: 0 0 auto;
 }
 
 .brand-mark img,
+.nav-shell .brand img,
+.rl-footer .brand img,
 .brand img {
-  width: 200px;
-  height: 60px;
-  object-fit: contain;
+  width: 200px !important;
+  height: 60px !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  object-position: left center;
   background: transparent;
+  display: block;
 }
 
 .nav-links {
@@ -264,13 +271,35 @@ body.page-research .hero-copy {
   .menu-btn { display: grid; place-items: center; }
 }
 
+@media (max-width: 860px) {
+  .brand-mark {
+    width: 148px !important;
+    height: 44px !important;
+  }
+  .brand-mark img,
+  .nav-shell .brand img,
+  .rl-footer .brand img,
+  .brand img {
+    width: 148px !important;
+    height: 44px !important;
+  }
+}
+
 @media (max-width: 720px) {
   .nav-cta { display: none; }
-  .brand-mark,
+  .nav-shell { width: calc(100% - 16px); top: 8px; }
+  .nav-shell .nav,
+  .nav-shell nav.nav { padding: 0 10px 0 12px; min-height: 56px; }
+  .brand-mark {
+    width: 132px !important;
+    height: 40px !important;
+  }
   .brand-mark img,
+  .nav-shell .brand img,
+  .rl-footer .brand img,
   .brand img {
-    width: 160px;
-    height: 52px;
+    width: 132px !important;
+    height: 40px !important;
   }
   .footer-grid {
     grid-template-columns: 1fr;
