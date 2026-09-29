@@ -125,3 +125,11 @@ a.sector-card h2 {
 @media (max-width: 900px) {
   .sector-grid { grid-template-columns: 1fr; }
 }
+
+.solution-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center;}
+.solution-image{width:100%;max-width:460px;margin:auto;border-radius:30px;overflow:hidden;border:1px solid rgba(186,210,232,.18);background:#08101f;}
+.solution-image img{display:block;width:100%;height:auto;}
+.solution-list{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px;}
+.solution-list li{display:flex;align-items:center;gap:12px;color:#e8eef6;line-height:1.5;}
+.solution-list li:before{content:'✓';display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#67e8f9;color:#07111f;font-weight:900;font-size:13px;}
+@media(max-width:900px){.solution-layout{grid-template-columns:1fr}.solution-image{order:-1}}

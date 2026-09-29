@@ -1,0 +1,238 @@
+/* =================================
+   RESEARCH WORKFLOW COMPONENT
+================================= */
+
+
+.workflow-section{
+  padding:90px 0;
+}
+
+
+
+.workflow-container{
+
+  width:min(1240px, calc(100% - 40px));
+
+  margin:0 auto;
+
+  display:grid;
+
+  grid-template-columns:1fr .9fr;
+
+  gap:70px;
+
+  align-items:center;
+
+}
+
+
+
+/* LEFT CONTENT */
+
+.workflow-label{
+
+color:#9beaf7;
+
+font-size:10px;
+
+font-weight:800;
+
+letter-spacing:.15em;
+
+text-transform:uppercase;
+
+}
+
+
+
+.workflow-content h2{
+
+margin:15px 0;
+
+font:700 clamp(32px,4vw,48px)/1.05 "Space Grotesk",sans-serif;
+
+letter-spacing:-.03em;
+
+}
+
+
+
+.workflow-content h2 span{
+
+background:linear-gradient(
+100deg,
+#fff,
+#c8f7ff,
+#67e8f9
+);
+
+-webkit-background-clip:text;
+
+background-clip:text;
+
+color:transparent;
+
+}
+
+
+
+.workflow-content > p{
+
+color:#d7e3f2;
+
+line-height:1.7;
+
+max-width:600px;
+
+}
+
+
+
+/* STEPS */
+
+.workflow-steps{
+
+margin-top:40px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+
+
+.step{
+
+display:flex;
+
+gap:18px;
+
+}
+
+
+
+.tick{
+
+width:32px;
+
+height:32px;
+
+flex:none;
+
+border-radius:50%;
+
+background:#087cff;
+
+color:#fff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:18px;
+
+font-weight:800;
+
+box-shadow:0 0 20px rgba(8,124,255,.45);
+
+}
+
+
+
+.step h3{
+
+margin:0 0 6px;
+
+font-size:17px;
+
+color:#fff;
+
+}
+
+
+
+.step p{
+
+margin:0;
+
+color:#d5e0ee;
+
+font-size:14px;
+
+line-height:1.6;
+
+max-width:450px;
+
+}
+
+
+
+/* RIGHT IMAGE */
+
+
+.workflow-image{
+
+display:flex;
+
+flex-direction:column;
+
+gap:30px;
+
+}
+
+
+
+.workflow-image img{
+
+width:100%;
+
+border-radius:28px;
+
+border:1px solid rgba(186,210,232,.16);
+
+box-shadow:0 30px 80px rgba(0,0,0,.45);
+
+}
+
+
+
+.secondary-image{
+
+width:75%!important;
+
+margin-left:auto;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.workflow-container{
+
+grid-template-columns:1fr;
+
+}
+
+
+.workflow-image{
+
+order:-1;
+
+}
+
+
+.secondary-image{
+
+width:100%!important;
+
+}
+
+}
