@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://www.relogiclabs.com/research">
-  <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="assets/brand/favicon.png" type="image/svg+xml">
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/brand/favicon-512.png" sizes="180x180">
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#050816">
   <meta property="og:image" content="../assets/brand/og-image.png">
@@ -19,10 +19,51 @@
   <link rel="stylesheet" href="../assets/css/chrome.css">
   <link rel="stylesheet" href="../assets/css/readability.css">
   <link rel="stylesheet" href="../assets/css/sectors.css">
+  <link rel="stylesheet" href="../../assets/css/workflow.css">
 
   <title>Research Consultancy · Relogic</title>
   <meta name="description" content="Relogic research consultancy across Medical, Startup and SME, and Enterprise Business sectors.">
-  <style>body{margin:0;min-height:100vh;background:#050816;color:#f8fbff;font-family:Inter,system-ui,sans-serif}</style>
+  <style>body{margin:0;min-height:100vh;background:#050816;color:#f8fbff;font-family:Inter,system-ui,sans-serif}
+/* UNIVERSAL NAVIGATION CONSISTENCY FIX */
+.nav-shell {
+  width: min(1190px, calc(100% - 28px)) !important;
+  top: 14px !important;
+}
+.nav {
+  min-height: 66px !important;
+  height: 66px !important;
+  padding: 0 14px 0 18px !important;
+  border-radius: 18px !important;
+}
+.brand-mark {
+  width: 200px !important;
+  height: 60px !important;
+}
+.nav-links {
+  gap: 5px !important;
+}
+.nav-links a {
+  padding: 10px 12px !important;
+  font-size: 13px !important;
+  font-weight: 650 !important;
+  line-height: 1.2 !important;
+  color: #d7e3f1 !important;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: #ffffff !important;
+}
+.nav-cta {
+  padding: 10px 14px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  border-radius: 11px !important;
+}
+@media(max-width:900px){
+ .nav { min-height:60px !important; height:60px !important; }
+ .brand-mark { width:160px !important; height:52px !important; }
+}
+
+</style>
 </head>
 <body class="rl-has-chrome">
 <a class="rl-skip" href="#main">Skip to content</a>

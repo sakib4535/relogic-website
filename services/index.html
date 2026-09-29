@@ -9,9 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <title>Services · Relogic</title>
-  <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="assets/brand/favicon.png" type="image/svg+xml">
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/brand/favicon-512.png" sizes="180x180">
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#050816">
   <meta property="og:image" content="../assets/brand/og-image.png">
@@ -48,7 +48,11 @@ html{
 
 body{
     margin:0;
-    background:var(--bg);
+    background:
+        radial-gradient(circle at 12% 0%, rgba(56,189,248,.18), transparent 22%),
+        radial-gradient(circle at 88% 8%, rgba(96,165,250,.16), transparent 24%),
+        radial-gradient(circle at 50% 48%, rgba(30,64,175,.12), transparent 38%),
+        linear-gradient(180deg, #030714 0%, #071224 34%, #081529 62%, #050812 100%);
     color:var(--text);
     font-family:Inter,sans-serif;
     min-height:100vh;
@@ -135,16 +139,17 @@ a{
 .hero:before{
     content:"";
     position:absolute;
-    width:640px;
-    height:260px;
+    width:720px;
+    height:300px;
     left:50%;
-    top:-160px;
+    top:-150px;
     transform:translateX(-50%);
     filter:blur(90px);
     background:linear-gradient(
         90deg,
-        rgba(87,231,255,.4),
-        rgba(167,139,250,.4)
+        rgba(87,231,255,.44),
+        rgba(56,189,248,.36),
+        rgba(96,165,250,.34)
     );
     border-radius:50%;
 }
@@ -381,6 +386,113 @@ h1{
     transform:translateX(6px);
 }
 
+/* =========================
+   BUSINESS CATEGORIES
+========================= */
+
+.business-categories{
+    padding:0 clamp(18px,3vw,42px) 86px;
+}
+
+.business-grid{
+    max-width:1320px;
+    margin:0 auto;
+    display:grid;
+    gap:18px;
+}
+
+.business-card{
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr);
+    gap:26px;
+    align-items:center;
+    padding:32px;
+    border:1px solid var(--line);
+    border-radius:28px;
+    background:linear-gradient(145deg, rgba(10,23,43,.96), rgba(8,15,28,.98));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+.business-card h3{
+    margin:10px 0 12px;
+    font:700 clamp(28px,4vw,44px)/1.02 'Space Grotesk',sans-serif;
+    letter-spacing:-.04em;
+}
+
+.business-card p{
+    margin:0;
+    max-width:640px;
+    color:#c3d0df;
+    line-height:1.75;
+}
+
+.business-label{
+    color:#9beaf7;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+.business-list{
+    list-style:none;
+    padding:0;
+    margin:22px 0 0;
+    display:grid;
+    gap:11px;
+}
+
+.business-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    color:#ecf4fc;
+    line-height:1.55;
+    font-size:13px;
+}
+
+.business-list li:before{
+    content:'✓';
+    width:22px;
+    height:22px;
+    flex:0 0 22px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,#9beaf7,#38bdf8);
+    color:#06111e;
+    font-weight:900;
+    font-size:12px;
+    margin-top:1px;
+}
+
+.business-link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:24px;
+    color:#9beaf7;
+    font-size:13px;
+    font-weight:800;
+}
+
+.business-visual{
+    width:100%;
+    max-width:430px;
+    margin-left:auto;
+    padding:14px;
+    border-radius:28px;
+    border:1px solid rgba(186,210,232,.18);
+    background:linear-gradient(180deg, rgba(9,20,38,.95), rgba(6,13,24,.98));
+}
+
+.business-visual img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:20px;
+}
+
 
 /* =========================
    BRIDGE
@@ -488,6 +600,16 @@ h1{
         grid-template-columns:1fr;
     }
 
+    .business-card{
+        grid-template-columns:1fr;
+    }
+
+    .business-visual{
+        max-width:100%;
+        margin-left:0;
+        order:-1;
+    }
+
     .footer>div:nth-child(2){
         flex-wrap:wrap;
     }
@@ -512,6 +634,46 @@ h1{
         width:160px;
         height:52px;
     }
+}
+
+
+/* UNIVERSAL NAVIGATION CONSISTENCY FIX */
+.nav-shell {
+  width: min(1190px, calc(100% - 28px)) !important;
+  top: 14px !important;
+}
+.nav {
+  min-height: 66px !important;
+  height: 66px !important;
+  padding: 0 14px 0 18px !important;
+  border-radius: 18px !important;
+}
+.brand-mark {
+  width: 200px !important;
+  height: 60px !important;
+}
+.nav-links {
+  gap: 5px !important;
+}
+.nav-links a {
+  padding: 10px 12px !important;
+  font-size: 13px !important;
+  font-weight: 650 !important;
+  line-height: 1.2 !important;
+  color: #d7e3f1 !important;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: #ffffff !important;
+}
+.nav-cta {
+  padding: 10px 14px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  border-radius: 11px !important;
+}
+@media(max-width:900px){
+ .nav { min-height:60px !important; height:60px !important; }
+ .brand-mark { width:160px !important; height:52px !important; }
 }
 
 </style>
@@ -711,6 +873,67 @@ h1{
 
 </section>
 
+<section class="business-categories" aria-label="Business category solutions">
+
+    <div class="section-head" style="max-width:1320px;margin:0 auto 34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,430px);gap:42px;align-items:end;">
+        <div>
+            <div class="kicker">Three business categories</div>
+            <h2 style="position:relative;margin:14px 0 0;max-width:880px;font:700 clamp(34px,5vw,68px)/.96 'Space Grotesk',sans-serif;letter-spacing:-.05em;">More visual, more formatted, and easier to understand.</h2>
+        </div>
+        <p style="position:relative;max-width:none;margin:0;color:#b9c7d7;font-size:14px;line-height:1.8;">Each category below uses a better blue and navy visual system, clear tick-mark service lists and an image on the right so clients can immediately understand the offer.</p>
+    </div>
+
+    <div class="business-grid">
+        <article class="business-card">
+            <div>
+                <span class="business-label">01 / Start-up business</span>
+                <h3>Fast-moving AI support for founder-led teams</h3>
+                <p>Created for start-ups that want a lean setup, visible business value and an easy explanation of what the service includes.</p>
+                <ul class="business-list">
+                    <li>Generative AI tools and lightweight knowledge assistants</li>
+                    <li>Automation for repetitive founder and team workflows</li>
+                    <li>Rapid pilots with measurable business outcomes</li>
+                    <li>Human review and safety controls from the beginning</li>
+                </ul>
+                <a class="business-link" href="../research/startups/">Open start-up pathway →</a>
+            </div>
+            <div class="business-visual"><img src="../images/solutions/startup-ai.svg" alt="Start-up business visual"></div>
+        </article>
+
+        <article class="business-card">
+            <div>
+                <span class="business-label">02 / SME business</span>
+                <h3>Practical systems for growing companies</h3>
+                <p>Built for SMEs that need stronger processes, better operations and AI solutions that can support growth without unnecessary complexity.</p>
+                <ul class="business-list">
+                    <li>Workflow automation for operations, sales and support</li>
+                    <li>Internal knowledge systems and reporting dashboards</li>
+                    <li>Customer experience and process improvement support</li>
+                    <li>Scalable implementation across teams and functions</li>
+                </ul>
+                <a class="business-link" href="../research/sme/">Open SME pathway →</a>
+            </div>
+            <div class="business-visual"><img src="../images/solutions/sme-ai.svg" alt="SME business visual"></div>
+        </article>
+
+        <article class="business-card">
+            <div>
+                <span class="business-label">03 / Enterprise business</span>
+                <h3>Governed AI transformation for large organisations</h3>
+                <p>Positioned for enterprise clients who need strategic direction, governance, integration and long-term operational confidence.</p>
+                <ul class="business-list">
+                    <li>Enterprise AI assessment and transformation roadmap</li>
+                    <li>Model governance, data strategy and risk management</li>
+                    <li>Decision-support systems for leadership teams</li>
+                    <li>Security, accountability and compliance alignment</li>
+                </ul>
+                <a class="business-link" href="../research/enterprise/">Open enterprise pathway →</a>
+            </div>
+            <div class="business-visual"><img src="../images/solutions/enterprise-ai.svg" alt="Enterprise business visual"></div>
+        </article>
+    </div>
+
+</section>
 
 
 <!-- =========================
