@@ -1,0 +1,112 @@
+/* Small editorial ornaments that echo the site's orbit and signal language. */
+.rl-divider {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  height: 54px;
+  margin: -18px 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rl-divider::before {
+  content: "";
+  position: absolute;
+  width: min(82vw, 1120px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(103, 232, 249, .18) 18%, rgba(125, 211, 252, .32) 50%, rgba(196, 181, 253, .18) 82%, transparent);
+}
+
+.rl-divider__mark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 74px;
+  height: 34px;
+  border: 1px solid rgba(126, 240, 255, .3);
+  background: #070d1d;
+  box-shadow: 0 0 28px rgba(56, 189, 248, .12);
+}
+
+.rl-divider__mark i {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7ef0ff;
+  box-shadow: 0 0 10px rgba(126, 240, 255, .55);
+}
+
+.rl-divider--orbit .rl-divider__mark { border-radius: 999px; }
+.rl-divider--orbit .rl-divider__mark::before,
+.rl-divider--orbit .rl-divider__mark::after {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  border: 1px solid rgba(196, 181, 253, .62);
+  border-radius: 50%;
+  transform: rotate(-28deg) scaleY(.48);
+}
+.rl-divider--orbit .rl-divider__mark::after { transform: rotate(28deg) scaleY(.48); }
+
+.rl-divider--prism .rl-divider__mark {
+  width: 86px;
+  height: 22px;
+  border: 0;
+  background: linear-gradient(90deg, #37c9ea, #8aa8ff 54%, #b69aff);
+  clip-path: polygon(9% 0, 91% 0, 100% 50%, 91% 100%, 9% 100%, 0 50%);
+}
+.rl-divider--prism .rl-divider__mark i { background: #07101e; box-shadow: none; }
+
+.rl-divider--wave .rl-divider__mark {
+  width: 94px;
+  height: 24px;
+  border: 0;
+  border-top: 2px solid #7ef0ff;
+  border-bottom: 2px solid rgba(196, 181, 253, .82);
+  border-radius: 50%;
+  background: transparent;
+  transform: rotate(-5deg);
+}
+.rl-divider--wave .rl-divider__mark i:nth-child(2) { width: 8px; height: 8px; background: #c4b5fd; }
+
+.rl-divider--bars .rl-divider__mark {
+  width: 82px;
+  height: 26px;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+}
+.rl-divider--bars .rl-divider__mark i {
+  width: 9px;
+  height: 22px;
+  border-radius: 2px 7px 2px 7px;
+  background: linear-gradient(180deg, #7ef0ff, #7186fa);
+}
+.rl-divider--bars .rl-divider__mark i:nth-child(2) { height: 14px; transform: skewX(-25deg); }
+.rl-divider--bars .rl-divider__mark i:nth-child(3) { height: 19px; transform: skewX(25deg); }
+
+.rl-divider--nodes .rl-divider__mark {
+  width: 88px;
+  height: 26px;
+  border: 0;
+  background: transparent;
+}
+.rl-divider--nodes .rl-divider__mark::before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 1px;
+  background: linear-gradient(90deg, #7ef0ff, #c4b5fd);
+}
+.rl-divider--nodes .rl-divider__mark i { position: relative; width: 9px; height: 9px; border: 2px solid #7ef0ff; background: #080d1d; }
+.rl-divider--nodes .rl-divider__mark i:nth-child(2) { width: 13px; height: 13px; border-color: #c4b5fd; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .rl-divider__mark { animation: divider-breathe 5s ease-in-out infinite; }
+  @keyframes divider-breathe { 50% { box-shadow: 0 0 34px rgba(126, 240, 255, .22); } }
+}

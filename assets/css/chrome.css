@@ -175,7 +175,11 @@ a.person-card h3 {
   height: 2px;
   background: #e8eef6;
   border-radius: 2px;
+  transition: transform .18s ease, opacity .18s ease;
 }
+.menu-btn.is-open .hamburger b:first-child { transform: translateY(5px) rotate(45deg); }
+.menu-btn.is-open .hamburger b:nth-child(2) { opacity: 0; }
+.menu-btn.is-open .hamburger b:last-child { transform: translateY(-5px) rotate(-45deg); }
 
 .mobile-menu {
   display: none;
@@ -266,7 +270,7 @@ body.page-research .hero-copy {
   font-size: 12px;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1080px) {
   .nav-links { display: none; }
   .menu-btn { display: grid; place-items: center; }
 }

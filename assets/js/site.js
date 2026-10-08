@@ -5,12 +5,14 @@
   var path = rawPath.toLowerCase();
 
   function sectionOf(p) {
-    p = String(p || "/").split("#")[0].replace(/\/+$/, "") || "/";
+    p = String(p || "/").split("#")[0].replace(/\/index\.html$/i, "").replace(/\/+$/, "") || "/";
     if (p === "/" || p === "/index") return "home";
     if (p.indexOf("/services") === 0) return "services";
     if (p.indexOf("/research") === 0) return "research";
     if (p.indexOf("/projects") === 0) return "projects";
     if (p.indexOf("/people") === 0) return "people";
+    if (p.indexOf("/case-studies") === 0) return "case-studies";
+    if (p.indexOf("/news") === 0) return "news";
     return p.replace(/^\//, "").replace(/\.html$/, "") || "home";
   }
   var section = sectionOf(path);
@@ -23,14 +25,6 @@
     }
   }
 
-  function markActive() {
-    document.querySelectorAll(".nav-links a, .mobile-menu a").forEach(function (link) {
-      var href = (link.getAttribute("href") || "").split("#")[0] || "/";
-      var linkSection = sectionOf(href);
-      if (linkSection === section) link.classList.add("active");
-    });
-  }
-
   function bindChrome() {
     var shell = document.getElementById("navShell");
     var btn = document.getElementById("menuBtn");
@@ -41,11 +35,13 @@
       btn.addEventListener("click", function () {
         var open = menu.classList.toggle("open");
         btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.classList.toggle("is-open", open);
       });
       menu.querySelectorAll("a").forEach(function (a) {
         a.addEventListener("click", function () {
           menu.classList.remove("open");
           btn.setAttribute("aria-expanded", "false");
+          btn.classList.remove("is-open");
         });
       });
     }
@@ -95,7 +91,6 @@
 
   ready(function () {
     document.body.classList.add("rl-has-chrome");
-    markActive();
     hardenLinks();
     // index.html already owns scroll, menu and reveal behaviour
     if (section !== "home") {
