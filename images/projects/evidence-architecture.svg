@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="evidence" x1="198" y1="144" x2="1000" y2="664" gradientUnits="userSpaceOnUse"><stop stop-color="#61E3D9"/><stop offset=".52" stop-color="#70B9FF"/><stop offset="1" stop-color="#BDA1FF"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#3774AF" stop-opacity=".35"/><stop offset="1" stop-color="#07101E" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="#060D19"/><circle cx="630" cy="401" r="350" fill="url(#halo)"/>
+  <g fill="#0A182B" stroke="url(#evidence)" stroke-width="2"><rect x="171" y="171" width="239" height="337" rx="19"/><rect x="473" y="263" width="249" height="337" rx="19"/><rect x="787" y="151" width="240" height="337" rx="19"/></g>
+  <g stroke="url(#evidence)" stroke-linecap="round"><path d="M207 224H373M207 254H351M207 284H365M207 314H335M207 344H365M207 374H319" stroke-width="3"/><path d="M510 315H683M510 346H661M510 377H679M510 408H635M510 439H677" stroke-width="3"/><path d="M823 201H991M823 232H972M823 263H987M823 294H945M823 325H987" stroke-width="3"/></g>
+  <g fill="#0D2034" stroke="url(#evidence)" stroke-width="2"><rect x="216" y="423" width="139" height="47" rx="10"/><rect x="520" y="501" width="155" height="61" rx="12"/><rect x="842" y="365" width="138" height="75" rx="12"/></g>
+  <path d="M355 446C417 446 430 467 489 516M675 531C739 531 764 489 830 403" stroke="url(#evidence)" stroke-width="3" stroke-dasharray="7 9"/>
+  <circle cx="411" cy="451" r="7" fill="#93F4F0"/><circle cx="752" cy="499" r="7" fill="#BDA1FF"/>
+  <g fill="#8DEDE8"><circle cx="217" cy="198" r="6"/><circle cx="520" cy="291" r="6"/><circle cx="834" cy="179" r="6"/></g>
+</svg>

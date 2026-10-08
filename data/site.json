@@ -6,13 +6,15 @@
   "tagline": "Make complexity useful.",
   "description": "AI-native research, data and product studio turning complex evidence into useful intelligence and digital systems.",
   "navigation": [
-    { "label": "Home", "href": "index.html" },
-    { "label": "About", "href": "index.html#about" },
-    { "label": "Services", "href": "services.html" },
-    { "label": "Research", "href": "research.html" },
-    { "label": "Digital Product", "href": "projects.html" },
-    { "label": "Our People", "href": "people.html" }
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/#about" },
+    { "label": "Services", "href": "/services/" },
+    { "label": "Research", "href": "/research/" },
+    { "label": "Digital Product", "href": "/projects/" },
+    { "label": "Case Studies", "href": "/case-studies/" },
+    { "label": "Our People", "href": "/people/" },
+    { "label": "News / Blogs", "href": "/news/" }
   ],
-  "cta": { "label": "Start a project", "href": "index.html#project-intake" },
+  "cta": { "label": "Start a project", "href": "/#project-intake" },
   "logo": "images/team/relogic-logo-transparent.png"
 }

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Sazzad Hossain Pranto monogram</title>
+  <desc id="desc">A blue and aqua monogram avatar for Sazzad Hossain Pranto.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081827"/><stop offset="1" stop-color="#0c2433"/></linearGradient>
+    <linearGradient id="type" x2="1" y2="1"><stop stop-color="#88f0df"/><stop offset="1" stop-color="#80bfff"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#50d8c2" stop-opacity=".2"/><stop offset="1" stop-color="#50d8c2" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#9fc7e8" stroke-opacity=".055"/></pattern>
+  </defs>
+  <rect width="720" height="920" fill="url(#bg)"/>
+  <rect width="720" height="920" fill="url(#grid)"/>
+  <circle cx="350" cy="410" r="340" fill="url(#glow)"/>
+  <path d="M360 215 554 325v210L360 645 166 535V325z" fill="#0d2030" stroke="#88f0df" stroke-opacity=".34" stroke-width="2"/>
+  <path d="M360 251 520 343v174l-160 92-160-92V343z" fill="none" stroke="#80bfff" stroke-opacity=".25"/>
+  <text x="360" y="482" text-anchor="middle" fill="url(#type)" font-family="Inter,Arial,sans-serif" font-size="118" font-weight="700" letter-spacing="-8">SP</text>
+  <text x="360" y="838" text-anchor="middle" fill="#b5c5d9" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="5">RELOGIC · CORE TEAM</text>
+</svg>

@@ -1,0 +1,241 @@
+[
+  {
+    "slug": "claims-and-method",
+    "title": "A sentiment label is only useful if the product can act on it",
+    "excerpt": "A 37,000-plus review study opens a harder question than positive or negative: what should a product team change next?",
+    "category": "Applied NLP · product research",
+    "date": "08 October 2026",
+    "repo": "Multi-Label-Text-Sentiment-Thread-Mobile-App",
+    "repo_url": "https://github.com/sakib4535/Multi-Label-Text-Sentiment-Thread-Mobile-App",
+    "image": "claims-and-method.png",
+    "sections": [
+      {
+        "heading": "A score is not a diagnosis",
+        "paragraphs": [
+          "A public Thread review project works with more than 37,000 Android and iOS reviews and explores multi-label sentiment with Word2Vec. The dataset gives the work scale. The useful product question begins after the label is assigned.",
+          "A negative review can mean a confusing setup, a broken flow, a moderation concern or a feature users cannot find. If every complaint collapses into one bucket, the model can summarize dissatisfaction while leaving the team unable to choose a fix."
+        ]
+      },
+      {
+        "heading": "Keep feeling, topic and action separate",
+        "paragraphs": [
+          "Sentiment describes tone. Topic describes what the person is talking about. Action describes what the product team can test. Those are related signals, but they answer different questions. A useful analysis preserves the distinction and lets a reviewer move from a theme back to the reviews that formed it.",
+          "Evaluation should do the same. Pair aggregate performance with per-class precision and recall, inspect examples the model gets wrong, and note which kinds of reviews are missing. One headline number cannot show whether a small but consequential group disappears inside the average."
+        ]
+      },
+      {
+        "heading": "Make the handoff useful",
+        "paragraphs": [
+          "The deliverable is not a sentiment chart. It is a short, reviewable path from comment to theme to product question: what changed, for whom, and what would count as evidence that the change helped? That is how text analysis becomes a decision surface instead of a report that ends at the model."
+        ]
+      }
+    ],
+    "index_image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=70",
+    "index_image_alt": "Research team reviewing evidence in a laboratory"
+  },
+  {
+    "slug": "reviewable-systems",
+    "title": "An API anomaly is a sequence, not a suspicious request",
+    "excerpt": "An access-behaviour study points to a better security question: when does an ordinary session stop behaving like itself?",
+    "category": "Platform security · anomaly research",
+    "date": "08 October 2026",
+    "repo": "Cyber-Security-Data-Research",
+    "repo_url": "https://github.com/sakib4535/Cyber-Security-Data-Research",
+    "image": "reviewable-systems.png",
+    "sections": [
+      {
+        "heading": "The pattern lives between calls",
+        "paragraphs": [
+          "An API security project studies access behaviour using session and sequence features, then compares AdaBoost, Gradient Boosting and XGBoost. That framing matters: a request can look ordinary on its own while the pace, order or reach of calls makes the session unusual.",
+          "A detector that treats every deviation as an incident will overwhelm the people who have to review it. A detector that only flags extreme events can miss slow, low-noise changes. The system has to describe why a sequence moved out of its usual range, not just attach a red label."
+        ]
+      },
+      {
+        "heading": "Tune for the response team",
+        "paragraphs": [
+          "Model selection is one part of the design. Thresholds should reflect the cost of a missed intrusion, the cost of an unnecessary escalation and the time available for investigation. Keep a baseline, test on held-out periods, and examine false positives by API, user type and session length.",
+          "The alert should carry its evidence: which behaviours changed, which data was used, and what the analyst can inspect next. A score without that trail is difficult to trust and even harder to improve."
+        ]
+      },
+      {
+        "heading": "Keep a person in the control loop",
+        "paragraphs": [
+          "An anomaly score can prioritize attention; it should not quietly become an access decision. Give analysts a reversible next step, log what they decided, and feed reviewed outcomes back into evaluation. The product is the full loop from unusual activity to a defensible response."
+        ]
+      }
+    ],
+    "index_image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=70",
+    "index_image_alt": "Artificial intelligence research visualization"
+  },
+  {
+    "slug": "tracking-data",
+    "title": "The word “game” is easy to count. The conversation is harder to hear.",
+    "excerpt": "A Reddit comments project shows why topic models need context, not just a list of frequent terms.",
+    "category": "Text analysis · community insight",
+    "date": "08 October 2026",
+    "repo": "Text-Mining-and-Opinion-Reddit",
+    "repo_url": "https://github.com/sakib4535/Text-Mining-and-Opinion-Reddit",
+    "image": "tracking-data.png",
+    "sections": [
+      {
+        "heading": "Frequency gives you a starting point",
+        "paragraphs": [
+          "A GamersHub project explores 21,821 Reddit comment records with text cleaning, CountVectorizer, TF-IDF and Latent Dirichlet Allocation. The repository’s word-frequency summary surfaces terms such as “game”, “play” and “controller”. That is a useful map legend, but it is not yet an explanation of what a community needs.",
+          "Frequent words often tell us what the dataset is about. The less frequent phrase can tell us where users are stuck, what has changed or which feature has become a point of friction. A topic model is most useful when it helps a researcher find those conversations, not when it replaces reading them."
+        ]
+      },
+      {
+        "heading": "Treat topics as questions to investigate",
+        "paragraphs": [
+          "A topic is a bundle of co-occurring terms, not a naturally named category. Review representative comments from each cluster, check whether the grouping is stable, and look for language that the preprocessing erased. Sarcasm, slang, product names and short replies can all bend the signal.",
+          "Keep the path from chart to example visible. When someone asks why a theme appeared, the analyst should be able to show the source comments, the cleaning choices and the model settings that shaped it."
+        ]
+      },
+      {
+        "heading": "Turn listening into a research loop",
+        "paragraphs": [
+          "The next step is a focused question: which experience are people describing, what evidence would distinguish a one-off complaint from a recurring issue, and what should the team inspect in the product? Text mining earns its place when it narrows that investigation without pretending the comments speak for everyone."
+        ]
+      }
+    ],
+    "index_image": "https://images.unsplash.com/photo-1494412574643-ff11af0a1c09?auto=format&fit=crop&w=1200&q=70",
+    "index_image_alt": "Research and information systems"
+  },
+  {
+    "slug": "founder-command",
+    "title": "Before a company expands, make the assumptions visible",
+    "excerpt": "A public Mottu expansion business case is a prompt to model the decision before the map gets crowded with pins.",
+    "category": "Business planning · market entry",
+    "date": "08 October 2026",
+    "repo": "mottu-expansion-business-case",
+    "repo_url": "https://github.com/pyakathon/mottu-expansion-business-case",
+    "image": "founder-command.png",
+    "sections": [
+      {
+        "heading": "An expansion case starts with what must be true",
+        "paragraphs": [
+          "A public repository frames an expansion business case for Mottu. The title alone points to a consequential choice: whether a business should carry its operating model into another market, and what evidence would justify that move.",
+          "A map can show where to go. It cannot tell a founder whether local demand, supply, operating capacity and cash timing fit together. Before choosing a destination, write down the assumptions that connect the opportunity to the outcome."
+        ]
+      },
+      {
+        "heading": "Separate the observed from the assumed",
+        "paragraphs": [
+          "Start with a measured baseline: the current customer journey, cost to serve, capacity constraints and the factors that can be observed in company records. Keep estimates such as conversion, launch cost or time-to-ramp in a separate assumptions register, each with a range and an owner.",
+          "Then run scenarios. A base case is not a forecast merely because it sits in the middle of a spreadsheet. Show the downside that would change the decision, the upside that depends on the most fragile assumption, and the next piece of research that would reduce uncertainty."
+        ]
+      },
+      {
+        "heading": "Make the decision reversible where possible",
+        "paragraphs": [
+          "A strong business case names a first step small enough to learn from: a pilot market, a limited capacity commitment or a customer segment worth validating. Define what would make the team scale, pause or exit before the result arrives.",
+          "That turns expansion planning from a persuasive slide into a decision model people can revisit when reality disagrees with the plan."
+        ]
+      }
+    ],
+    "index_image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=70",
+    "index_image_alt": "Business planning materials on a table"
+  },
+  {
+    "slug": "gaming-signals",
+    "title": "Popularity is not the same thing as a good recommendation",
+    "excerpt": "A RAWG gaming-data project raises a product-design question: which signals describe a player's fit, not just a game's reach?",
+    "category": "Applied ML · game discovery",
+    "date": "08 October 2026",
+    "repo": "RAWG-Gaming-Data-ML",
+    "repo_url": "https://github.com/sakib4535/RAWG-Gaming-Data-ML",
+    "image": "gaming-signals.png",
+    "sections": [
+      {
+        "heading": "A catalogue is not a taste model",
+        "paragraphs": [
+          "A RAWG-Gaming-Data-ML project connects machine-learning exploration with game data. That is a rich product space: a catalogue can describe titles, but a recommendation has to reason about a particular player, moment and reason to choose.",
+          "Popularity is an easy proxy because it is visible and plentiful. It can also make a recommender repeat the same familiar titles, bury niche interests and confuse exposure with preference. The right signal depends on the job: discovery, similarity, replay, or a recommendation that fits a constraint the player actually named."
+        ]
+      },
+      {
+        "heading": "Make the comparison fair",
+        "paragraphs": [
+          "Before training a model, define what counts as a relevant match and what a user should be able to inspect. Separate features available at recommendation time from information that appears later; otherwise the evaluation can quietly learn from the answer key.",
+          "Compare a simple popularity baseline with content-based and behavioural approaches. Evaluate beyond one average score: examine coverage, novelty and how results change for players with different histories. A recommendation system should explain its trade-offs, not turn one ranking into an objective truth."
+        ]
+      },
+      {
+        "heading": "Let discovery stay personal",
+        "paragraphs": [
+          "A useful interface gives people ways to steer: “more like this”, “surprise me”, or “show why it fits”. Those controls create better feedback than a silent click count and give the model a clearer relationship with the person using it."
+        ]
+      }
+    ],
+    "index_image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=70",
+    "index_image_alt": "Machine learning research visualization"
+  },
+  {
+    "slug": "ottoman-text-context",
+    "title": "Historical text needs a model that knows what it cannot normalize",
+    "excerpt": "A text-analytics project on Ottoman history is a reminder that language processing begins with the archive's shape and context.",
+    "category": "Historical text · digital research",
+    "date": "08 October 2026",
+    "repo": "Text-Analytics-Ottoman-History",
+    "repo_url": "https://github.com/sakib4535/Text-Analytics-Ottoman-History",
+    "image": "ottoman-text-context.png",
+    "sections": [
+      {
+        "heading": "The archive is part of the dataset",
+        "paragraphs": [
+          "A Text-Analytics-Ottoman-History project puts historical material and computational analysis in the same frame. Before counting terms or fitting a model, a researcher has to understand how the text reached the dataset: source, date, transcription choices, missing pages and the conventions of the collection.",
+          "Normalization can make a corpus easier to process while also erasing useful distinctions. Spellings shift, names vary, and a token may carry a meaning that depends on its period or document type. A tidy vocabulary is not automatically a faithful one."
+        ]
+      },
+      {
+        "heading": "Keep uncertainty attached to the text",
+        "paragraphs": [
+          "Record what was changed during preprocessing and preserve access to the original form. When a model groups words or documents, let a scholar inspect the examples that support that grouping. Mark ambiguous passages instead of forcing them into a confident category.",
+          "The same principle applies to visualizations. A trend line should carry its corpus boundaries, time span and known gaps. Otherwise the interface makes a partial archive look like a complete record of the past."
+        ]
+      },
+      {
+        "heading": "Use computation to open the next question",
+        "paragraphs": [
+          "The model's strongest contribution may be navigation: pointing a historian toward a cluster, a change in vocabulary or a document worth reading closely. Human interpretation remains part of the method, with the digital layer making more of the archive inspectable."
+        ]
+      }
+    ],
+    "index_image": "https://images.unsplash.com/photo-1494412574643-ff11af0a1c09?auto=format&fit=crop&w=1200&q=70",
+    "index_image_alt": "Archival research and digital text analysis"
+  },
+  {
+    "slug": "work-without-borders",
+    "title": "Two countries can share a chart and still ask different questions",
+    "excerpt": "A U.S.–Canada remote-work comparison is a lesson in keeping time, industry and worker context inside the analysis.",
+    "category": "Labour data · comparative insight",
+    "date": "08 October 2026",
+    "repo": "remote-work-usa-canada",
+    "repo_url": "https://github.com/pyakathon/remote-work-usa-canada",
+    "image": "work-without-borders.png",
+    "sections": [
+      {
+        "heading": "A comparison needs a shared frame",
+        "paragraphs": [
+          "A remote-work project compares the United States and Canada across 2020–2024, looking at adoption, industries, worker preferences and related measures. The project makes a useful choice visible: compare two places, but keep the dimensions that make their labour markets different.",
+          "A shared percentage can hide different definitions, survey windows and populations. “Remote work” might mean fully remote, hybrid, or any work done at home during a reference period. Before plotting a cross-country difference, write down what each source counted and who could enter the denominator."
+        ]
+      },
+      {
+        "heading": "Time is a variable, not a footnote",
+        "paragraphs": [
+          "The years around 2020 include a shock, a rapid adjustment and a longer negotiation over workplace policy. A single before-and-after chart can compress those phases into one story. Show the timeline, note where source methods change, and resist treating a temporary peak as a settled norm.",
+          "Industry, education, geography and household conditions can also shape who has the option to work remotely. Those differences deserve separate views before an average is turned into a recommendation for employers or policy-makers."
+        ]
+      },
+      {
+        "heading": "Make the reader's next question easier",
+        "paragraphs": [
+          "A comparative dashboard should let a reader inspect the source, definition and year behind a point. Then the chart can start a real discussion: which workers benefit, which jobs remain tied to place, and what infrastructure or policy could change that boundary?"
+        ]
+      }
+    ],
+    "index_image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=70",
+    "index_image_alt": "Comparative labour research and analysis"
+  }
+]

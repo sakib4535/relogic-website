@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="route" x1="170" y1="596" x2="1044" y2="175" gradientUnits="userSpaceOnUse"><stop stop-color="#61E4D3"/><stop offset=".5" stop-color="#64B8FF"/><stop offset="1" stop-color="#B99BFF"/></linearGradient>
+    <pattern id="map" width="120" height="110" patternUnits="userSpaceOnUse"><path d="M0 56C31 35 65 87 120 42M32 0C50 30 40 67 74 110" stroke="#90B6DC" stroke-opacity=".1"/><path d="M0 95H120M0 20H120" stroke="#90B6DC" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#07101D"/><rect width="1200" height="800" fill="url(#map)"/>
+  <g stroke="#7E9CB9" stroke-opacity=".18" stroke-width="2"><path d="M105 174L303 242L390 171L584 260L712 196L899 268L1082 180"/><path d="M138 561L318 459L481 528L624 420L783 494L966 396L1116 457"/><path d="M212 126L282 362L207 653M565 113L510 359L595 646M927 135L859 331L961 665"/></g>
+  <path d="M187 560C272 566 257 423 366 421C469 419 450 284 552 300C666 318 651 493 769 470C867 451 843 292 944 291C1010 291 1001 220 1053 202" stroke="url(#route)" stroke-width="11" stroke-linecap="round" stroke-dasharray="2 1"/>
+  <path d="M187 560C272 566 257 423 366 421C469 419 450 284 552 300C666 318 651 493 769 470C867 451 843 292 944 291C1010 291 1001 220 1053 202" stroke="url(#route)" stroke-opacity=".25" stroke-width="34" stroke-linecap="round"/>
+  <g><circle cx="187" cy="560" r="18" fill="#0A1829" stroke="#75E8DB" stroke-width="4"/><circle cx="366" cy="421" r="12" fill="#0A1829" stroke="#75D7F0" stroke-width="4"/><circle cx="552" cy="300" r="12" fill="#0A1829" stroke="#78C8FF" stroke-width="4"/><circle cx="769" cy="470" r="12" fill="#0A1829" stroke="#92B6FF" stroke-width="4"/><circle cx="944" cy="291" r="12" fill="#0A1829" stroke="#B59DFF" stroke-width="4"/><circle cx="1053" cy="202" r="20" fill="#B89CFF" fill-opacity=".15" stroke="#C5B2FF" stroke-width="3"/><circle cx="1053" cy="202" r="6" fill="#E4DBFF"/></g>
+  <g fill="#0A1829" stroke="#8DBDDB" stroke-opacity=".42"><rect x="98" y="108" width="208" height="75" rx="14"/><rect x="811" y="574" width="265" height="90" rx="15"/></g>
+  <g stroke="url(#route)" stroke-width="3" stroke-linecap="round"><path d="M126 139H263M126 158H222M840 606H1036M840 630H995"/></g>
+</svg>

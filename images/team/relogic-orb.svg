@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Relogic AI orb</title>
+  <desc id="desc">A luminous cyan and violet intelligence orb with orbiting signals.</desc>
+  <defs>
+    <radialGradient id="core" cx="35%" cy="28%"><stop stop-color="#e4ffff"/><stop offset=".2" stop-color="#73edff"/><stop offset=".58" stop-color="#318bff"/><stop offset="1" stop-color="#482d9c"/></radialGradient>
+    <radialGradient id="halo"><stop stop-color="#52d9ff" stop-opacity=".32"/><stop offset="1" stop-color="#52d9ff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="orbit" x1="15" y1="25" x2="103" y2="94"><stop stop-color="#70f4eb"/><stop offset=".55" stop-color="#75b9ff"/><stop offset="1" stop-color="#c2a0ff"/></linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="url(#halo)"/>
+  <ellipse cx="60" cy="60" rx="43" ry="18" fill="none" stroke="url(#orbit)" stroke-width="1.6" transform="rotate(-34 60 60)" opacity=".9"/>
+  <ellipse cx="60" cy="60" rx="43" ry="18" fill="none" stroke="#9bdcff" stroke-width="1" transform="rotate(39 60 60)" opacity=".5"/>
+  <circle cx="60" cy="60" r="22" fill="url(#core)" filter="url(#glow)"/>
+  <circle cx="44" cy="42" r="3.2" fill="#8efff2"/>
+  <circle cx="94" cy="31" r="3.4" fill="#c5a7ff"/>
+  <circle cx="26" cy="79" r="2.6" fill="#76dfff"/>
+  <circle cx="85" cy="91" r="2.2" fill="#e5faff"/>
+</svg>

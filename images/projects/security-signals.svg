@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="signal" x1="130" y1="579" x2="1049" y2="221" gradientUnits="userSpaceOnUse"><stop stop-color="#5BE6D3"/><stop offset=".52" stop-color="#68B9FF"/><stop offset="1" stop-color="#C59AFF"/></linearGradient>
+    <radialGradient id="hot"><stop stop-color="#FF6FBC" stop-opacity=".38"/><stop offset="1" stop-color="#FF6FBC" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="#060C18"/><circle cx="866" cy="282" r="200" fill="url(#hot)"/>
+  <g stroke="#91AFCB" stroke-opacity=".14"><path d="M144 146H1080M144 224H1080M144 302H1080M144 380H1080M144 458H1080M144 536H1080M144 614H1080"/><path d="M184 112V666M280 112V666M376 112V666M472 112V666M568 112V666M664 112V666M760 112V666M856 112V666M952 112V666M1048 112V666"/></g>
+  <path d="M144 526L231 509L298 518L366 475L438 491L501 450L563 470L622 442L684 456L741 407L797 422L856 280L912 396L966 372L1020 388L1080 339" stroke="url(#signal)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M856 280V615" stroke="#FB79C3" stroke-opacity=".62" stroke-width="2" stroke-dasharray="6 10"/><circle cx="856" cy="280" r="15" fill="#FB79C3" fill-opacity=".24"/><circle cx="856" cy="280" r="6" fill="#FFD1EE"/>
+  <g fill="#0B1728" stroke="url(#signal)" stroke-width="2"><rect x="180" y="146" width="241" height="105" rx="16"/><rect x="707" y="551" width="309" height="82" rx="15"/></g>
+  <g stroke="url(#signal)" stroke-width="3" stroke-linecap="round"><path d="M211 185H388M211 211H346M738 581H977M738 604H933"/></g>
+  <g fill="#D9EBFA"><circle cx="231" cy="509" r="5"/><circle cx="438" cy="491" r="5"/><circle cx="563" cy="470" r="5"/><circle cx="741" cy="407" r="5"/><circle cx="966" cy="372" r="5"/></g>
+</svg>
