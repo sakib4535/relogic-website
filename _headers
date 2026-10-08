@@ -8,3 +8,35 @@
 
 /*.html
   Cache-Control: public, max-age=300
+
+/.env*
+  Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/data/admin.key
+  Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/data/leads/*
+  Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/*client_secret*.json
+  Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/*credentials*.json
+  Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/*service_account*.json
+  Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/*service-account*.json
+  Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/token.json
+  Cache-Control: no-store
+  X-Robots-Tag: noindex

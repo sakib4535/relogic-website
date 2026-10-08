@@ -1,110 +1,56 @@
-# Relogic site system
+# Relogic Labs site
 
-Same studio. Same pages. One structure.
+The site keeps its dark studio identity, home-page carousel, research and product pages, team portraits, diagrams and project media. Shared navigation and readable type connect the existing pages. The four model case studies have their own image-led page.
 
-The old root mixed `index`, `index-main`, `services`, `services_restyled`, verification files, previews and page CSS in a single folder. Clicking **Services** felt like opening a different website because each file had its own header, link set and colour weight.
+## Public routes
 
-This package keeps every page’s internal design — hero carousels, study cards, product modules, people portraits — and puts them on one chrome system.
-
-## What changed
-
-- One navigation and one footer on Home, Services, Research, Digital Product, Our People and profile pages.
-- Research is in the main nav on every page (it was missing from Home).
-- `digital-product.html` links now point at `projects.html`.
-- Body copy is brightened on dark surfaces so text is readable. Light research paper sections keep dark ink.
-- Four injected “share redirector / scroll lock” scripts were removed from `index.html`. Those scripts overrode `addEventListener` and were not part of the product.
-- Security headers, `robots.txt`, `sitemap.xml` and `.well-known/security.txt` are included.
-- Team and project records live in `data/` so the site can be maintained as a system.
-
-## Public pages
-
-| File | Role |
+| Route | Page |
 |---|---|
-| `index.html` | Studio home |
-| `services.html` | Research vs Digital Product |
-| `research.html` | Medical / epidemiology practice |
-| `projects.html` | Product systems |
-| `people.html` | Team directory |
-| `people/*.html` | Individual profiles |
+| `/` | Studio home |
+| `/services/` | Services |
+| `/research/` | Research consultancy |
+| `/research/medical/`, `/research/startups/`, `/research/enterprise/` | Research desks |
+| `/projects/` | Digital products |
+| `/case-studies/` | Image-led case studies for four models in build |
+| `/people/`, `/people/<slug>/` | Team directory and profiles |
+| `/news/` or `/news` | Field Notes and studio updates |
+| `/news/blogs/<slug>/` | Project-led articles |
 
-## Drop in your existing media
+The four case-study tracks are DEN Agentic AI, Agent Relogic, FounderCMD and ClinTx Engine. Article inspiration and source repositories are linked on each Field Note page.
 
-Copy these from the current repo into this folder, keeping the same paths:
+## Editorial updates
 
-```
-images/team/
-images/research/
-googled4c684d6f81a8ef7.html
-```
-
-Move leftovers into `archive/`:
-
-```
-index-main.html
-services_restyled.html
-preview files
-```
-
-## Rebuild chrome after content edits
+Edit `data/blogs.json` and rebuild the Field Notes pages and index with:
 
 ```bash
-python3 src/build_site.py
+python3 src/build_editorial.py
 ```
 
-The builder copies page bodies from `/home/workdir/attachments` in this workspace. On your machine, point `ATTACH` in `src/build_site.py` at your source HTML if you need to regenerate.
+Each article has absolute Open Graph and Twitter metadata plus a local 1200 x 630 PNG with the article title. The same metadata provides preview cards in Facebook, LinkedIn and WhatsApp. Social platforms cache previews, so use their URL inspection tools to refresh a card after publishing a change.
 
-## Security baseline
+`src/build_site.py` is a legacy migration utility for a separate set of source pages. It is not part of the current site build.
 
-- Directory listing disabled (`.htaccess`)
-- `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`
-- External links get `rel="noopener noreferrer"`
-- `/archive`, `/docs`, `/src` and `/data` are disallowed in `robots.txt`
-- Old aliases redirect: `/digital-product.html` → `/projects.html`
-
-## Colour
-
-Shared tokens in `assets/css/tokens.css` plus `assets/css/readability.css` lift muted greys (`#5e7089`, `#8b98ad`) to readable light steel (`#d5e0ee`, `#f4f8fd`) on dark backgrounds. Section artwork, grids, orbits and cards were not removed.
-
-
-## Pretty URLs
-
-Public paths hide `.html`:
-
-- `/services`
-- `/research`
-- `/research/medical`
-- `/research/startups`
-- `/research/enterprise`
-- `/projects`
-- `/people`
-- `/people/hasnain-imtiaz`
-
-Apache uses `.htaccess`. Netlify uses `_redirects`.
-
-## Brand icons
-
-Tab and search icons live in `assets/brand/` plus root `favicon.ico` and `site.webmanifest`.
-Replace those files with the official lockup when you want the exact wordmark in search results.
-
-
-## Run the site (required for the form)
+## Local development
 
 ```bash
 python3 tools/serve.py
 ```
 
-Open http://127.0.0.1:4173/
+Open `http://127.0.0.1:4173/`. The included server resolves directory routes such as both `/news` and `/news/` to their `index.html` pages. Project intake posts to `/api/intake`; local submissions are stored in `data/leads/`.
 
-Project intake posts to `/api/intake`. Each brief is stored in `data/leads/` as JSON plus `inbox.jsonl`.
+To open the local inbox, configure a server-only key before starting the server:
 
-Read submissions at http://127.0.0.1:4173/admin?key=YOUR_KEY
+```powershell
+$env:RELOGIC_ADMIN_KEY = "a-long-private-value"
+python tools/serve.py
+```
 
-The key lives in `data/admin.key` (default `relogic-admin`). Change that file before going live.
+Then open `http://127.0.0.1:4173/admin`. The server has no default key, never prints the key, sends the form by POST, and blocks direct requests for private lead and credential files.
 
-If the server is down, the form still opens a mail draft to hello@relogic.ai.
+## Credential handling
 
-## Navigation
+Google OAuth client secrets, service-account keys and API credentials do not belong in this static website or its browser JavaScript. Keep them in a server-only environment variable or a secret manager. `.gitignore`, `.vercelignore`, host rules and the local server block common credential filenames. No Google authentication credential was included in the supplied archive or added to this project.
 
-Top bar: Home, About, Services, Digital Product, Our People.
+## Design and assets
 
-Research is reached from Services → Research Consultancy, then Medical / Startup and SMEs / Enterprise.
+Shared color and readability tokens live in `assets/css/tokens.css` and `assets/css/readability.css`. Shared navigation lives in `assets/css/chrome.css` and `assets/js/site.js`. Original photos, research graphs, partner logos, favicons and brand files remain in their original paths; the new social cards live in `images/social/`.

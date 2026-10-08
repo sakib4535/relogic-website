@@ -1,12 +1,25 @@
+/data/admin.key  /404.html  404
+/data/leads/*  /404.html  404
+/.env  /404.html  404
+/.env.*  /404.html  404
+/*client_secret*.json  /404.html  404
+/*credentials*.json  /404.html  404
+/*service_account*.json  /404.html  404
+/*service-account*.json  /404.html  404
+/*authorized_user*.json  /404.html  404
+/token.json  /404.html  404
+
 /services              /services/index.html              200
 /projects              /projects/index.html              200
 /people                /people/index.html                200
 /research              /research/index.html              200
+/case-studies          /case-studies/index.html          200
 /research/medical      /research/medical/index.html      200
 /research/startups     /research/startups/index.html     200
 /research/enterprise   /research/enterprise/index.html   200
 /people/:slug          /people/:slug/index.html          200
 /news                  /news/index.html                  200
+/news/                 /news/index.html                  200
 
 /news/blogs/:slug       /news/blogs/:slug/index.html       200
 /news/updates/:slug     /news/updates/:slug/index.html     200

@@ -9,9 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 FAVICONS = """
-  <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/assets/brand/relogic-labs-favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/brand/relogic-labs-apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#050816">
   <meta property="og:image" content="https://www.relogiclabs.com/assets/brand/og-image.png">
@@ -278,7 +277,7 @@ def rewrite_links(html: str) -> str:
 
 
 def inject_favicons(html: str) -> str:
-    if "/assets/brand/favicon.svg" in html:
+    if "/assets/brand/relogic-labs-favicon-192.png" in html:
         return html
     if "</title>" in html:
         return html.replace("</title>", "</title>\n  " + FAVICONS, 1)

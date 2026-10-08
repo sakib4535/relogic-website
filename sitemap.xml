@@ -7,5 +7,14 @@
   <url><loc>https://www.relogiclabs.com/research/startups</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.relogiclabs.com/research/enterprise</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.relogiclabs.com/projects</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.relogiclabs.com/case-studies</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.relogiclabs.com/people</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.relogiclabs.com/news</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.relogiclabs.com/news/blogs/claims-and-method</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.relogiclabs.com/news/blogs/reviewable-systems</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.relogiclabs.com/news/blogs/tracking-data</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.relogiclabs.com/news/blogs/founder-command</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.relogiclabs.com/news/blogs/gaming-signals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.relogiclabs.com/news/blogs/ottoman-text-context</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.relogiclabs.com/news/blogs/work-without-borders</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

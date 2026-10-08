@@ -5,25 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#050816" />
   <meta name="description" content="Relogic is an AI-native research, data and product studio turning complex evidence into useful intelligence and digital systems." />
-  <meta property="og:title" content="Relogic | Make complexity useful" />
-  <meta property="og:description" content="Research, AI, data intelligence and digital products for difficult problems." />
-  <meta property="og:image" content="assets/brand/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Relogic Labs" />
+  <meta property="og:title" content="Relogic Labs | Make complexity useful" />
+  <meta property="og:description" content="Research, AI, data intelligence and digital products for decisions that need a visible path from evidence to action." />
+  <meta property="og:image" content="https://www.relogiclabs.com/assets/brand/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Relogic Labs — Make complexity useful" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Relogic Labs | Make complexity useful" />
+  <meta name="twitter:description" content="Research, AI, data intelligence and digital products for decisions that need a visible path from evidence to action." />
+  <meta name="twitter:image" content="https://www.relogiclabs.com/assets/brand/og-image.png" />
   <meta name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-<link rel="canonical" href="https://www.relogiclabs.com/">
-
-<meta property="og:url" content="https://www.relogiclabs.com/">
-  <title>Relogic Labs | Open Research Hub and AI Native Studio </title>
-  <link rel="icon" href="assets/brand/favicon.png" sizes="any">
-  <link rel="icon" href="assets/brand/favicon.png" type="image/svg+xml">
-  <link rel="icon" href="assets/brand/favicon.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/brand/favicon-512.png" sizes="180x180">
+  <link rel="canonical" href="https://www.relogiclabs.com/">
+  <meta property="og:url" content="https://www.relogiclabs.com/">
+  <title>Relogic Labs | Open Research Hub and AI Native Studio</title>
+  <link rel="apple-touch-icon" href="/assets/brand/relogic-labs-apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#050816">
-  <meta property="og:image" content="assets/brand/og-image.png">
-  <meta name="twitter:image" content="assets/brand/og-image.png">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +33,8 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/chrome.css">
   <link rel="stylesheet" href="assets/css/readability.css">
+  <link rel="stylesheet" href="assets/css/ornaments.css">
+  <link rel="stylesheet" href="assets/css/case-studies.css">
 
   <style>
     :root {
@@ -854,14 +858,16 @@
     /* PROJECTS */
     .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .featured-project-wrap { margin-bottom: 55px; }
-    .featured-stack { display:grid; gap:18px; }
-    .featured-stack .featured-project-card { min-height:520px; }
+    .featured-stack { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .featured-stack .featured-project-card { min-height:365px; }
     .featured-label { color:#67e8f9; font-size:11px; font-weight:900; letter-spacing:.18em; text-transform:uppercase; margin-bottom:18px; }
-    .featured-project-card { min-height:650px; }
+    .featured-project-card { min-height:365px; }
+    .featured-project-card .project-content { left:18px; right:18px; bottom:18px; }
     .featured-project-card .project-image img { filter:saturate(1.18) brightness(.68); }
-    .featured-project-card .project-content h3 { font-size:clamp(38px,5vw,70px); max-width:900px; }
-    .featured-project-card .project-content p { font-size:16px; max-width:760px; }
-    .featured-live { position:absolute; top:22px; right:22px; z-index:8; padding:11px 18px; border-radius:999px; background:linear-gradient(135deg,#a5f3fc,#38bdf8); color:#06111e; font-size:10px; font-weight:950; letter-spacing:.12em; }
+    .featured-project-card .project-content h3 { font-size:clamp(25px,2.4vw,36px); max-width:100%; }
+    .featured-project-card .project-content p { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; font-size:12px; max-width:100%; }
+    .featured-project-card .project-actions { margin-top:12px; gap:7px; }
+    .featured-live { position:absolute; top:15px; right:15px; z-index:8; padding:8px 12px; border-radius:999px; background:linear-gradient(135deg,#a5f3fc,#38bdf8); color:#06111e; font-size:8px; font-weight:950; letter-spacing:.12em; }
     .project-card {
       position: relative;
       min-height: 440px;
@@ -1480,7 +1486,7 @@
         .mobile-showcase-kicker { color:#38BDF8; font-size:11px; font-weight:800; letter-spacing:.17em; text-transform:uppercase; }
         .mobile-showcase-head h2 { margin:14px 0 16px; font:700 clamp(38px,5vw,64px)/.96 'Space Grotesk',sans-serif; letter-spacing:-.045em; }
         .mobile-showcase-head p { color:#94A3B8; font-size:14px; line-height:1.75; max-width:650px; margin:0 auto; }
-        .mobile-device-row { display:grid; grid-template-columns:repeat(3,minmax(280px,340px)); justify-content:center; gap:34px; align-items:start; }
+        .mobile-device-row { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); justify-content:center; gap:22px; align-items:start; }
         .mobile-device { width:100%; aspect-ratio: .49 / 1; min-height:650px; max-height:710px; padding:9px; border-radius:48px; background:linear-gradient(145deg,#263449,#05070b 48%,#152338); border:1px solid #334155; box-shadow:0 36px 90px rgba(0,0,0,.52),inset 0 0 0 1px rgba(255,255,255,.05); position:relative; }
         .mobile-device:before { content:""; position:absolute; width:3px; height:70px; left:-4px; top:145px; border-radius:4px 0 0 4px; background:#263449; box-shadow:0 88px 0 #263449; }
         .mobile-device:after { content:""; position:absolute; width:3px; height:105px; right:-4px; top:190px; border-radius:0 4px 4px 0; background:#263449; }
@@ -1493,12 +1499,12 @@
         .mobile-status-icons { display:flex; align-items:center; gap:5px; font-size:8px; letter-spacing:-.04em; }
         .mobile-appbar { padding:10px 20px 12px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
         .mobile-brand { display:flex; align-items:center; gap:9px; font:600 12px 'Space Grotesk',sans-serif; }
-        .mobile-brand img { width:28px; height:28px; border-radius:50%; object-fit:cover; border:1px solid rgba(125,211,252,.28); box-shadow:0 0 18px rgba(56,189,248,.14); }
+        .mobile-brand img { width:28px; height:28px; border-radius:50%; object-fit:contain; filter:drop-shadow(0 0 11px rgba(56,189,248,.24)); }
         .mobile-icon-btn { width:30px; height:30px; border-radius:50%; display:grid; place-items:center; border:1px solid rgba(148,163,184,.18); background:rgba(255,255,255,.045); color:#dbeafe; font-size:11px; }
         .mobile-home-body { padding:40px 24px 22px; text-align:center; display:flex; flex:1; flex-direction:column; align-items:center; }
-        .mobile-logo-orb { width:104px; height:104px; border-radius:50%; padding:14px; background:rgba(255,255,255,.96); display:grid; place-items:center; box-shadow:0 22px 55px rgba(56,189,248,.12); margin-top:18px; }
+        .mobile-logo-orb { width:88px; height:88px; border-radius:50%; padding:0; background:transparent; display:grid; place-items:center; filter:drop-shadow(0 14px 30px rgba(56,189,248,.25)); margin-top:18px; }
         .mobile-logo-orb img { width:100%; height:100%; object-fit:contain; border-radius:50%; }
-        .mobile-home-body h3 { margin:34px 0 13px; font:700 30px/1.05 'Space Grotesk',sans-serif; letter-spacing:-.035em; }
+        .mobile-home-body h3 { margin:22px 0 13px; font:700 30px/1.05 'Space Grotesk',sans-serif; letter-spacing:-.035em; }
         .mobile-home-body p { margin:0; max-width:250px; color:#9fc6e9; font-size:12px; line-height:1.65; }
         .mobile-mini-metrics { width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin:28px 0 18px; }
         .mobile-mini-metric { padding:10px 4px; border-radius:13px; background:rgba(255,255,255,.045); border:1px solid rgba(148,163,184,.12); }
@@ -1525,12 +1531,13 @@
         .mobile-nav a b { font-size:15px; line-height:1; font-weight:500; }
         .mobile-nav a.active { color:#7dd3fc; }
         .mobile-chat-head { padding:10px 20px 14px; display:flex; align-items:center; gap:10px; border-bottom:1px solid rgba(148,163,184,.09); }
-        .mobile-chat-avatar { width:34px; height:34px; border-radius:50%; padding:4px; background:white; }
-        .mobile-chat-avatar img { width:100%; height:100%; border-radius:50%; object-fit:cover; }
+        .mobile-chat-avatar { width:34px; height:34px; border-radius:50%; padding:0; background:transparent; }
+        .mobile-chat-avatar img { width:100%; height:100%; border-radius:50%; object-fit:contain; }
         .mobile-chat-head b { display:block; font:600 11px 'Space Grotesk'; }
         .mobile-chat-head span { display:flex; align-items:center; gap:5px; margin-top:2px; color:#76a0c3; font-size:7px; }
         .mobile-chat-head span:before { content:""; width:6px; height:6px; border-radius:50%; background:#5eead4; }
         .mobile-chat { padding:18px 17px 96px; display:flex; flex:1; flex-direction:column; gap:10px; overflow:hidden; }
+        .mobile-booking-chat { padding-bottom:12px; }
         .mobile-message { max-width:86%; padding:12px 13px; border-radius:17px; font-size:10px; line-height:1.55; }
         .mobile-message.user { margin-left:auto; background:#214a7e; border-bottom-right-radius:6px; }
         .mobile-message.ai { margin-right:auto; background:#123458; color:#d9eaff; border-bottom-left-radius:6px; }
@@ -1541,15 +1548,24 @@
         .mobile-composer span { color:#6d8baa; font-size:8px; }
         .mobile-send { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:#38BDF8; color:#072033; font-size:13px; font-weight:900; }
         .mobile-home-indicator { position:absolute; bottom:6px; left:50%; transform:translateX(-50%); width:100px; height:4px; border-radius:4px; background:rgba(226,232,240,.76); }
+        .mobile-booking-card { margin:0 16px 88px; padding:14px; border-radius:17px; background:linear-gradient(145deg,rgba(28,62,101,.94),rgba(12,31,55,.98)); border:1px solid rgba(125,211,252,.2); box-shadow:0 14px 34px rgba(0,0,0,.18); }
+        .mobile-booking-card small { color:#91b8d7; font-size:7px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+        .mobile-booking-card strong { display:block; margin-top:8px; font:700 12px 'Space Grotesk'; }
+        .mobile-booking-route { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:13px; color:#e7f6ff; font:700 11px 'Space Grotesk'; }
+        .mobile-booking-route i { flex:1; height:1px; background:linear-gradient(90deg,#4acfe5,#a78bfa); }
+        .mobile-booking-note { display:block; margin-top:9px; color:#91aeca; font-size:8px; line-height:1.5; }
+        .mobile-booking-action { display:block; margin-top:12px; padding:9px 10px; border-radius:10px; background:linear-gradient(110deg,#67e8f9,#60a5fa); color:#07182a; text-align:center; font-size:8px; font-weight:900; }
         @media (max-width: 1080px) {
-            .mobile-device-row { grid-template-columns:repeat(3,310px); justify-content:start; overflow-x:auto; padding:0 calc((100vw - 310px)/2) 18px; scroll-snap-type:x mandatory; scrollbar-width:none; }
+            .featured-stack { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .mobile-device-row { grid-template-columns:repeat(4,295px); justify-content:start; overflow-x:auto; padding:0 calc((100vw - 295px)/2) 18px; scroll-snap-type:x mandatory; scrollbar-width:none; }
             .mobile-device-row::-webkit-scrollbar { display:none; }
             .mobile-device { scroll-snap-align:center; }
         }
+        @media (max-width: 760px) { .featured-stack { grid-template-columns:1fr; } .featured-stack .featured-project-card { min-height:340px; } }
         @media (max-width: 480px) {
             .ai-mobile-section { padding:82px 0 90px; }
             .mobile-showcase-head { padding:0 22px; margin-bottom:38px; }
-            .mobile-device-row { grid-template-columns:repeat(3,286px); padding:0 calc((100vw - 286px)/2) 14px; gap:18px; }
+            .mobile-device-row { grid-template-columns:repeat(4,270px); padding:0 calc((100vw - 270px)/2) 14px; gap:18px; }
             .mobile-device { min-height:610px; border-radius:43px; }
             .mobile-screen { min-height:592px; border-radius:34px; }
         }
@@ -2268,253 +2284,50 @@
             .rp-review-value { text-align: left; }
         }
 </style>
-<style>/* ==========================================
-   🚀 HIDDEN ELEMENTS (Original Rules)
-   ========================================== */
-[data-testid="accounts-profile-button"],
-[data-testid="conversation-options-button"],
-[aria-description="Share sheet"],
-#modal-account-payment,
-#modal-conversation-history-rate-limit,
-a[href="/library"],
-a[href="/Invite team members"],
-a[href="/apps"],
-a[href="/logout"],
-a[href="/admin"],
-a[href="/deep-research"],
-div[id*="pricing"],
-.modal-pricing {
-  display: none !important;
-}
-
-#notice_share {
-  padding: 0 !important;
-  overflow: hidden;
-}
-
-/* ==========================================
-   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
-   ========================================== */
-html, body, #__next, [data-scroll-locked] {
-    overflow: visible !important;
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-    padding-right: 0 !important; 
-}
-
-.flex-1.overflow-hidden, 
-.react-scroll-to-bottom--css {
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-}
-
-div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
-    display: none !important;
-    pointer-events: none !important;
-}</style><style>/* ==========================================
-   🚀 HIDDEN ELEMENTS (Original Rules)
-   ========================================== */
-[data-testid="accounts-profile-button"],
-[data-testid="conversation-options-button"],
-[aria-description="Share sheet"],
-#modal-account-payment,
-#modal-conversation-history-rate-limit,
-a[href="/library"],
-a[href="/Invite team members"],
-a[href="/apps"],
-a[href="/logout"],
-a[href="/admin"],
-a[href="/deep-research"],
-div[id*="pricing"],
-.modal-pricing {
-  display: none !important;
-}
-
-#notice_share {
-  padding: 0 !important;
-  overflow: hidden;
-}
-
-/* ==========================================
-   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
-   ========================================== */
-html, body, #__next, [data-scroll-locked] {
-    overflow: visible !important;
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-    padding-right: 0 !important; 
-}
-
-.flex-1.overflow-hidden, 
-.react-scroll-to-bottom--css {
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-}
-
-div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
-    display: none !important;
-    pointer-events: none !important;
-}</style><style>/* ==========================================
-   🚀 HIDDEN ELEMENTS (Original Rules)
-   ========================================== */
-[data-testid="accounts-profile-button"],
-[data-testid="conversation-options-button"],
-[aria-description="Share sheet"],
-#modal-account-payment,
-#modal-conversation-history-rate-limit,
-a[href="/library"],
-a[href="/Invite team members"],
-a[href="/apps"],
-a[href="/logout"],
-a[href="/admin"],
-a[href="/deep-research"] {
-  display: none !important;
-}
-
-#notice_share {
-  padding: 0 !important;
-  overflow: hidden;
-}
-
-/* ==========================================
-   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
-   ========================================== */
-html, body, #__next, [data-scroll-locked] {
-    overflow: visible !important;
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-    padding-right: 0 !important; 
-}
-
-.flex-1.overflow-hidden, 
-.react-scroll-to-bottom--css {
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-}
-
-div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
-    display: none !important;
-    pointer-events: none !important;
-}/* ==========================================
-   🚀 HIDDEN ELEMENTS (Original Rules)
-   ========================================== */
-[data-testid="accounts-profile-button"],
-[data-testid="conversation-options-button"],
-[aria-description="Share sheet"],
-#modal-account-payment,
-#modal-conversation-history-rate-limit,
-a[href="/library"],
-a[href="/Invite team members"],
-a[href="/apps"],
-a[href="/logout"],
-a[href="/admin"],
-a[href="/deep-research"] {
-  display: none !important;
-}
-
-#notice_share {
-  padding: 0 !important;
-  overflow: hidden;
-}
-
-/* ==========================================
-   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
-   ========================================== */
-html, body, #__next, [data-scroll-locked] {
-    overflow: visible !important;
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-    padding-right: 0 !important; 
-}
-
-.flex-1.overflow-hidden, 
-.react-scroll-to-bottom--css {
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-}
-
-div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
-    display: none !important;
-    pointer-events: none !important;
-}</style><style>/* ==========================================
-   🚀 HIDDEN ELEMENTS (Original Rules)
-   ========================================== */
-[data-testid="accounts-profile-button"],
-[data-testid="conversation-options-button"],
-[aria-description="Share sheet"],
-#modal-account-payment,
-#modal-conversation-history-rate-limit,
-a[href="/library"],
-a[href="/Invite team members"],
-a[href="/apps"],
-a[href="/logout"],
-a[href="/admin"],
-a[href="/deep-research"],
-div[id*="pricing"],
-.modal-pricing {
-  display: none !important;
-}
-
-#notice_share {
-  padding: 0 !important;
-  overflow: hidden;
-}
-
-/* ==========================================
-   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
-   ========================================== */
-html, body, #__next, [data-scroll-locked] {
-    overflow: visible !important;
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-    padding-right: 0 !important; 
-}
-
-.flex-1.overflow-hidden, 
-.react-scroll-to-bottom--css {
-    overflow-y: auto !important;
-    pointer-events: auto !important;
-}
-
-div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
-    display: none !important;
-    pointer-events: none !important;
-}</style></head>
+  <link rel="icon" href="/assets/brand/relogic-labs-favicon-192.png" type="image/png" sizes="192x192">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.relogiclabs.com/#organization",
+        "name": "Relogic Labs",
+        "url": "https://www.relogiclabs.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.relogiclabs.com/assets/brand/relogic-labs-organization-logo.png",
+          "width": 512,
+          "height": 512
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.relogiclabs.com/#website",
+        "url": "https://www.relogiclabs.com/",
+        "name": "Relogic Labs",
+        "publisher": { "@id": "https://www.relogiclabs.com/#organization" }
+      }
+    ]
+  }
+  </script>
+</head>
 <body>
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <div class="nav-shell" id="navShell">
     <nav class="nav" aria-label="Primary navigation">
-      <a href="#home" class="brand" aria-label="Relogic home">
-        <span class="brand-mark">
-          <img src="images/team/relogic-logo-transparent.png" alt="Relogic Labs" />
-        </span>
-      </a>
+      <a href="index.html" class="brand" aria-label="Relogic home"><span class="brand-mark"><img src="images/team/relogic-logo-transparent.png" alt="Relogic Labs"></span></a>
 
-      <div class="nav-links">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="services/">Services</a>
-        <a href="projects/">Digital Product</a>
-        <a href="people/">Our People</a>
-        <a href="news/">News / Blogs</a>
-      </div>
+      <div class="nav-links"><a href="index.html">Home</a><a href="index.html#about">About</a><a href="services/index.html">Services</a><a href="projects/index.html">Digital Product</a><a href="case-studies/index.html">Case Studies</a><a href="people/index.html">Our People</a><a href="news/index.html">News / Blogs</a></div>
 
       <div class="nav-actions">
-        <a class="nav-cta" href="#project-intake">Start a project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        <a class="nav-cta" href="index.html#project-intake">Start a project</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span class="hamburger" aria-hidden="true"><b></b><b></b><b></b></span></button>
       </div>
     </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="services/">Services</a>
-      <a href="projects/">Digital Product</a>
-      <a href="people/">Our People</a>
-      <a href="news/">News / Blogs</a>
-      <a href="#project-intake">Contact</a>
-    </div>
+    <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="index.html#about">About</a><a href="services/index.html">Services</a><a href="projects/index.html">Digital Product</a><a href="case-studies/index.html">Case Studies</a><a href="people/index.html">Our People</a><a href="news/index.html">News / Blogs</a><a href="index.html#project-intake">Contact</a></div>
   </div>
 
   <main id="main">
@@ -2534,8 +2347,8 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="services/">Explore what we build <i class="fa-solid fa-arrow-right"></i></a>
-              <a class="btn btn-ghost" href="projects/">See selected work <i class="fa-solid fa-layer-group"></i></a>
+              <a class="btn btn-primary" href="services/index.html">Explore what we build <i class="fa-solid fa-arrow-right"></i></a>
+              <a class="btn btn-ghost" href="projects/index.html">See selected work <i class="fa-solid fa-layer-group"></i></a>
             </div>
 
             <div class="hero-meta">
@@ -2582,6 +2395,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       </div>
     </section>
 
+    <div class="rl-divider rl-divider--orbit" aria-hidden="true"><span class="rl-divider__mark"><i></i><i></i><i></i></span></div>
     <section class="section" id="about">
       <div class="container">
         <div class="section-head reveal">
@@ -2613,6 +2427,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       </div>
     </section>
 
+    <div class="rl-divider rl-divider--prism" aria-hidden="true"><span class="rl-divider__mark"><i></i><i></i><i></i></span></div>
     <section class="section" id="services">
       <div class="container">
         <div class="section-head reveal">
@@ -2624,7 +2439,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         </div>
 
         <div class="service-grid">
-          <a class="service-card reveal" href="research/" aria-label="Open Research & Evidence Intelligence service page">
+          <a class="service-card reveal" href="research/index.html" aria-label="Open Research & Evidence Intelligence service page">
             <span class="service-number">01 / RESEARCH</span>
             <div class="service-icon"><i class="fa-solid fa-microscope"></i></div>
             <h3>Research & Evidence Intelligence</h3>
@@ -2632,7 +2447,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             <div class="service-tags"><span>Research design</span><span>Evidence synthesis</span><span>Literature intelligence</span><span>Decision memos</span></div>
           </a>
 
-          <a class="service-card reveal" href="services/" aria-label="Open Generative AI & Applied ML service page">
+          <a class="service-card reveal" href="services/index.html" aria-label="Open Generative AI & Applied ML service page">
             <span class="service-number">02 / AI SYSTEMS</span>
             <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
             <h3>Generative AI & Applied ML</h3>
@@ -2640,7 +2455,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             <div class="service-tags"><span>RAG</span><span>Agents</span><span>Evaluation</span><span>NLP</span><span>Model UX</span></div>
           </a>
 
-          <a class="service-card reveal" href="services/" aria-label="Open Data Intelligence & Analytics service page">
+          <a class="service-card reveal" href="services/index.html" aria-label="Open Data Intelligence & Analytics service page">
             <span class="service-number">03 / DATA</span>
             <div class="service-icon"><i class="fa-solid fa-database"></i></div>
             <h3>Data Intelligence & Analytics</h3>
@@ -2648,7 +2463,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             <div class="service-tags"><span>Analytics</span><span>Dashboards</span><span>Forecasting</span><span>Data quality</span><span>Visualization</span></div>
           </a>
 
-          <a class="service-card reveal" href="projects/" aria-label="Open Digital Products & Decision Interfaces service page">
+          <a class="service-card reveal" href="projects/index.html" aria-label="Open Digital Products & Decision Interfaces service page">
             <span class="service-number">04 / PRODUCTS</span>
             <div class="service-icon"><i class="fa-solid fa-object-group"></i></div>
             <h3>Digital Products & Decision Interfaces</h3>
@@ -2660,6 +2475,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
 
     </section>
 
+    <div class="rl-divider rl-divider--wave" aria-hidden="true"><span class="rl-divider__mark"><i></i><i></i><i></i></span></div>
     <section class="section" id="projects">
       <div class="container">
         <div class="section-head reveal">
@@ -2676,6 +2492,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       </div>
     </section>
 
+    <div class="rl-divider rl-divider--nodes" aria-hidden="true"><span class="rl-divider__mark"><i></i><i></i><i></i></span></div>
     <section class="section-sm" id="people">
       <div class="container">
         <div class="people-shell reveal">
@@ -2684,20 +2501,20 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
               <div class="section-kicker">Our People</div>
               <h2>One mission. Different minds.</h2>
               <p>Research, engineering, data, product, governance and strategy meet in one team. The goal is not to hand work between disciplines, but to make them think together from the beginning.</p>
-              <a class="btn btn-ghost" href="people/" style="margin-top:18px;">Meet the full team <i class="fa-solid fa-arrow-right"></i></a>
+              <a class="btn btn-ghost" href="people/index.html" style="margin-top:18px;">Meet the full team <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="people-links">
-              <a class="people-link" href="people/#leadership"><div><small>01 / LEADERSHIP</small><i class="fa-solid fa-compass" style="float:right"></i></div><div><h3>Leadership</h3><p>Direction, partnerships and the operating thesis behind Relogic.</p></div></a>
-              <a class="people-link" href="people/#advisors"><div><small>02 / ADVISORS</small><i class="fa-solid fa-circle-nodes" style="float:right"></i></div><div><h3>Advisors</h3><p>Specialist perspectives supporting research, engineering and market decisions.</p></div></a>
-              <a class="people-link" href="people/#core-team"><div><small>03 / CORE TEAM</small><i class="fa-solid fa-code-branch" style="float:right"></i></div><div><h3>Core Team</h3><p>People who turn evidence, models and interfaces into usable systems.</p></div></a>
+              <a class="people-link" href="people/index.html#leadership"><div><small>01 / LEADERSHIP</small><i class="fa-solid fa-compass" style="float:right"></i></div><div><h3>Leadership</h3><p>Direction, partnerships and the operating thesis behind Relogic.</p></div></a>
+              <a class="people-link" href="people/index.html#advisors"><div><small>02 / ADVISORS</small><i class="fa-solid fa-circle-nodes" style="float:right"></i></div><div><h3>Advisors</h3><p>Specialist perspectives supporting research, engineering and market decisions.</p></div></a>
+              <a class="people-link" href="people/index.html#core-team"><div><small>03 / CORE TEAM</small><i class="fa-solid fa-code-branch" style="float:right"></i></div><div><h3>Core Team</h3><p>People who turn evidence, models and interfaces into usable systems.</p></div></a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    
+    <div class="rl-divider rl-divider--orbit" aria-hidden="true"><span class="rl-divider__mark"><i></i><i></i><i></i></span></div>
 
 
 
@@ -2706,7 +2523,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         <div class="mobile-showcase-head">
             <div class="mobile-showcase-kicker">Mobile Experience</div>
             <h2 id="mobileExperienceRealTitle">Relogic, designed like a real app.</h2>
-            <p>Three product states - onboarding, studio dashboard and AI conversation - rebuilt with device framing, status bars, navigation, app controls and the Relogic logo used throughout.</p>
+            <p>Four product states—onboarding, workspace, research conversation and guided ticket booking—shown in the Relogic AI mobile experience.</p>
         </div>
         <div class="mobile-device-row">
             <div class="mobile-device" aria-label="Relogic mobile onboarding screen">
@@ -2714,11 +2531,11 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                     <div class="mobile-island"></div>
                     <div class="mobile-status"><span>9:41</span><span class="mobile-status-icons">5G&nbsp;&nbsp;|||&nbsp;&nbsp;100%</span></div>
                     <div class="mobile-home-body">
-                        <div class="mobile-logo-orb"><img src="images/team/relogic-bg-remove.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"></div>
-                        <h3>Build the future<br>with intelligence.</h3>
+                        <div class="mobile-logo-orb"><img src="images/team/relogic-orb.svg" alt="Relogic AI orb"></div>
+                        <h3>Relogic AI</h3>
                         <p>Research, AI and digital products shaped around real problems and measurable outcomes.</p>
                         <div class="mobile-mini-metrics"><div class="mobile-mini-metric"><b>AI</b><span>Native</span></div><div class="mobile-mini-metric"><b>R&D</b><span>Research</span></div><div class="mobile-mini-metric"><b>UX</b><span>Human</span></div></div>
-                        <a class="mobile-primary" href="services/">Explore Relogic <span>&rarr;</span></a>
+                        <a class="mobile-primary" href="services/index.html">Explore Relogic <span>&rarr;</span></a>
                     </div>
                     <div class="mobile-home-indicator"></div>
                 </div>
@@ -2728,15 +2545,15 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                 <div class="mobile-screen screen-dashboard">
                     <div class="mobile-island"></div>
                     <div class="mobile-status"><span>9:41</span><span class="mobile-status-icons">5G&nbsp;&nbsp;|||&nbsp;&nbsp;100%</span></div>
-                    <div class="mobile-appbar"><div class="mobile-brand"><img src="images/team/relogic-bg-remove.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"><span>Relogic Studio</span></div><div class="mobile-icon-btn">+</div></div>
+                    <div class="mobile-appbar"><div class="mobile-brand"><img src="images/team/relogic-orb.svg" alt="Relogic AI orb"><span>Relogic AI</span></div><div class="mobile-icon-btn">+</div></div>
                     <div class="mobile-content">
                         <div class="mobile-greeting">Your workspace</div>
                         <h3 class="mobile-title">What do you want<br>to build today?</h3>
-                        <a href="research/" class="mobile-service-card"><span class="mobile-service-icon">R</span><span><b>Research Consulting</b><span>Evidence, analysis and study design</span></span><em>&rarr;</em></a>
-                        <a href="projects/" class="mobile-service-card"><span class="mobile-service-icon">P</span><span><b>Digital Products</b><span>Strategy, UX and product engineering</span></span><em>&rarr;</em></a>
+                        <a href="research/index.html" class="mobile-service-card"><span class="mobile-service-icon">R</span><span><b>Research Consulting</b><span>Evidence, analysis and study design</span></span><em>&rarr;</em></a>
+                        <a href="projects/index.html" class="mobile-service-card"><span class="mobile-service-icon">P</span><span><b>Digital Products</b><span>Strategy, UX and product engineering</span></span><em>&rarr;</em></a>
                         <div class="mobile-project"><div class="mobile-project-top"><div><small>Active engagement</small><strong>Discovery Sprint</strong></div><span class="mobile-project-badge">In progress</span></div><div class="mobile-progress"><i></i></div></div>
                     </div>
-                    <nav class="mobile-nav" aria-label="Mobile preview navigation"><a class="active" href="#home"><b>⌂</b>Home</a><a href="services/"><b>◇</b>Work</a><a href="people/"><b>◎</b>People</a></nav>
+                    <nav class="mobile-nav" aria-label="Mobile preview navigation"><a class="active" href="#home"><b>⌂</b>Home</a><a href="services/index.html"><b>◇</b>Work</a><a href="people/index.html"><b>◎</b>People</a></nav>
                     <div class="mobile-home-indicator"></div>
                 </div>
             </div>
@@ -2745,7 +2562,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                 <div class="mobile-screen screen-chat">
                     <div class="mobile-island"></div>
                     <div class="mobile-status"><span>9:41</span><span class="mobile-status-icons">5G&nbsp;&nbsp;|||&nbsp;&nbsp;100%</span></div>
-                    <div class="mobile-chat-head"><div class="mobile-chat-avatar"><img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"></div><div><b>Relogic AI Studio</b><span>Online</span></div></div>
+                    <div class="mobile-chat-head"><div class="mobile-chat-avatar"><img src="images/team/relogic-orb.svg" alt="Relogic AI orb"></div><div><b>Relogic AI</b><span>Online</span></div></div>
                     <div class="mobile-chat">
                         <div class="mobile-message user">We have messy clinical survey data. Where should we start?</div>
                         <div class="mobile-message ai"><b>Start with the research question.</b><br><br>Then we can map variables, data quality, missingness and the analysis plan before building a model.</div>
@@ -2754,6 +2571,19 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                         <div class="mobile-suggestions"><span>Research plan</span><span>Data audit</span><span>Dashboard idea</span></div>
                     </div>
                     <div class="mobile-composer"><span>Ask Relogic AI...</span><div class="mobile-send">&uarr;</div></div>
+                    <div class="mobile-home-indicator"></div>
+                </div>
+            </div>
+            <div class="mobile-device" aria-label="Relogic AI ticket booking assistant">
+                <div class="mobile-screen screen-chat">
+                    <div class="mobile-island"></div>
+                    <div class="mobile-status"><span>9:41</span><span class="mobile-status-icons">5G&nbsp;&nbsp;|||&nbsp;&nbsp;100%</span></div>
+                    <div class="mobile-chat-head"><div class="mobile-chat-avatar"><img src="images/team/relogic-orb.svg" alt="Relogic AI orb"></div><div><b>Relogic AI</b><span>Booking assistant</span></div></div>
+                    <div class="mobile-chat mobile-booking-chat">
+                        <div class="mobile-message user">Can you find two tickets for Saturday’s show?</div>
+                        <div class="mobile-message ai"><b>I found two seats together.</b><br><br>Here is the option to review before you decide.</div>
+                    </div>
+                    <div class="mobile-booking-card"><small>Example booking · Pending approval</small><strong>Saturday · 2 seats together</strong><div class="mobile-booking-route"><span>DOORS</span><i></i><span>SHOW</span></div><span class="mobile-booking-note">Check the date, price and terms before purchase.</span><span class="mobile-booking-action">Review booking</span></div>
                     <div class="mobile-home-indicator"></div>
                 </div>
             </div>
@@ -3076,7 +2906,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
 
         <div class="ai30-wrap">
             <div class="ai30-brand">
-                <img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';">
+                <img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo-transparent.png';">
                 <span>Relogic</span>
                 <span class="ai30-brand-divider">/</span>
                 <span style="color:#647087;">Intelligence Map</span>
@@ -3470,12 +3300,10 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         <div class="client-logo-box">
           <h2 class="client-logo-title">Organizations We Have Worked With</h2>
           <div class="client-logo-grid">
-            <!-- Replace these image paths with your company logo files -->
-            <!-- Put images inside: images/logos/ -->
             <div class="client-logo-item"><img src="images/logos/company-1.png" alt="Company Logo 1"></div>
             <div class="client-logo-item"><img src="images/logos/company-2.png" alt="Company Logo 2"></div>
             <div class="client-logo-item"><img src="images/logos/company-3.png" alt="Company Logo 3"></div>
-            <div class="client-logo-item"><img src="images/logos/company-4.png" alt="Company Logo 4"></div>
+            <div class="client-logo-item"><div class="den-partner-mark" aria-label="DEN Agentic AI partner build"><strong>DEN</strong><span>AGENTIC AI</span><small>PARTNER BUILD</small></div></div>
           </div>
         </div>
       </div>
@@ -3954,7 +3782,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
           <a href="#home" class="brand"><span class="brand-mark"><img src="images/team/relogic-logo-transparent.png" alt="Relogic Labs"></span></a>
           <p class="footer-copy">Research, AI, data intelligence and digital products for situations where the answer has to be more than impressive. It has to be useful.</p>
         </div>
-        <div class="footer-links"><a href="#about">About</a><a href="services/">Services</a><a href="research/">Research</a><a href="projects/">Digital Product</a><a href="people/">Our People</a><a href="news/">News / Blogs</a><a href="#project-intake">Contact</a></div>
+        <div class="footer-links"><a href="#about">About</a><a href="services/index.html">Services</a><a href="research/index.html">Research</a><a href="projects/index.html">Digital Product</a><a href="case-studies/index.html">Case Studies</a><a href="people/index.html">Our People</a><a href="news/index.html">News / Blogs</a><a href="#project-intake">Contact</a></div>
       </div>
       <div class="copyright">© 2026 Relogic Solutions. Built around evidence, data and useful intelligence.</div>
     </div>
@@ -4171,7 +3999,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         }
 
         function openEmailDraft(mail){
-            const href = 'mailto:' + studioEmail + '?subject=' + encodeURIComponent(mail.subject) + '&body=' + encodeURIComponent(mail.body);
+            const href='mailto:' + studioEmail + '?subject=' + encodeURIComponent(mail.subject) + '&body=' + encodeURIComponent(mail.body);
             const link = document.createElement('a');
             link.href = href;
             link.style.display = 'none';
@@ -4588,13 +4416,13 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       menuBtn.addEventListener("click", function () {
         const open = mobileMenu.classList.toggle("open");
         menuBtn.setAttribute("aria-expanded", String(open));
-        menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+        menuBtn.classList.toggle("is-open", open);
       });
       mobileMenu.querySelectorAll("a").forEach(function (link) {
         link.addEventListener("click", function () {
           mobileMenu.classList.remove("open");
           menuBtn.setAttribute("aria-expanded", "false");
-          menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          menuBtn.classList.remove("is-open");
         });
       });
 
@@ -5211,3 +5039,5 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>
+
+

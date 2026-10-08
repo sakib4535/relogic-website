@@ -5,6 +5,11 @@ Disallow: /archive/
 Disallow: /docs/
 Disallow: /src/
 Disallow: /data/
+Disallow: /data/admin.key
+Disallow: /data/leads/
+Disallow: /.env
+Disallow: /client_secret.json
+Disallow: /credentials.json
 Disallow: /admin
 Disallow: /library
 
