@@ -8,12 +8,14 @@ import json
 import posixpath
 from pathlib import Path
 
+from portable_links import file_href
+
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://www.relogiclabs.com"
 
 UPDATES = [
     {
-        "href": "/news/updates/research-pathways/index.html",
+        "href": "/news/updates/research-pathways",
         "date": "In development",
         "title": "Research starts with the shape of the evidence",
         "copy": "The research desks are being organized around medical, startup and enterprise questions, with source context kept close to each finding.",
@@ -21,7 +23,7 @@ UPDATES = [
         "alt": "Researchers reviewing medical evidence",
     },
     {
-        "href": "/news/updates/selected-work/index.html",
+        "href": "/news/updates/selected-work",
         "date": "In development",
         "title": "Four models, four different jobs",
         "copy": "DEN Agentic AI, Agent Relogic, FounderCMD and ClinTx Engine each start from a different user need and a different kind of evidence.",
@@ -29,7 +31,7 @@ UPDATES = [
         "alt": "A team planning work around a table",
     },
     {
-        "href": "/news/updates/media-slot/index.html",
+        "href": "/news/updates/media-slot",
         "date": "Product note",
         "title": "A useful model makes its reasoning inspectable",
         "copy": "The product notes focus on visible sources, clear limits and a next step a person can review.",
@@ -37,7 +39,7 @@ UPDATES = [
         "alt": "A speaker presenting research to an audience",
     },
     {
-        "href": "/news/updates/intake-open/index.html",
+        "href": "/news/updates/intake-open",
         "date": "Studio",
         "title": "Bring the difficult brief",
         "copy": "Research and product briefs can start with the question, the evidence already available and the people who need to act.",
@@ -48,12 +50,13 @@ UPDATES = [
 
 
 def local_href(page_dir: Path, target: str) -> str:
-    """Return a site-root target relative to the current page directory."""
-    path, separator, suffix = target.lstrip("/").partition("#")
-    if not path:
-        path = "index.html"
-    relative = posixpath.relpath(path, page_dir.as_posix() or ".")
-    return relative + (separator + suffix if separator else "")
+    """Use real HTML files so links also work when opened directly from disk."""
+    return file_href(ROOT, page_dir / "index.html", target)
+
+
+def asset_href(page_dir: Path, target: str) -> str:
+    """Use the same relative paths for assets on disk and on the web."""
+    return file_href(ROOT, page_dir / "index.html", target)
 
 
 def nav(page_dir: Path) -> str:
@@ -74,7 +77,7 @@ def nav(page_dir: Path) -> str:
         f'<a href="{html.escape(local_href(page_dir, "/index.html#project-intake"), quote=True)}">Contact</a>'
     )
     home = html.escape(local_href(page_dir, "/index.html"), quote=True)
-    logo = html.escape(local_href(page_dir, "/images/team/relogic-logo-transparent.png"), quote=True)
+    logo = html.escape(asset_href(page_dir, "/images/team/relogic-logo-transparent.png"), quote=True)
     contact = html.escape(local_href(page_dir, "/index.html#project-intake"), quote=True)
     return f'''<div class="nav-shell" id="navShell">
     <nav class="nav" aria-label="Primary navigation">
@@ -94,7 +97,7 @@ def nav(page_dir: Path) -> str:
 
 def footer(page_dir: Path) -> str:
     home = html.escape(local_href(page_dir, "/index.html"), quote=True)
-    logo = html.escape(local_href(page_dir, "/images/team/relogic-logo-transparent.png"), quote=True)
+    logo = html.escape(asset_href(page_dir, "/images/team/relogic-logo-transparent.png"), quote=True)
     links = [
         ("About", "/index.html#about"),
         ("Services", "/services/index.html"),
@@ -109,7 +112,7 @@ def footer(page_dir: Path) -> str:
         f'<a href="{html.escape(local_href(page_dir, href), quote=True)}">{label}</a>'
         for label, href in links
     )
-    script = html.escape(local_href(page_dir, "/assets/js/site.js"), quote=True)
+    script = html.escape(asset_href(page_dir, "/assets/js/site.js"), quote=True)
     return f'''<footer class="rl-footer">
   <div class="container"><div class="footer-grid">
     <div><a href="{home}" class="brand" aria-label="Relogic home"><span class="brand-mark"><img src="{logo}" alt="Relogic Labs"></span></a>
@@ -148,7 +151,7 @@ def write_index(posts: list[dict]) -> None:
     updates = "\n".join(update_card(item) for item in UPDATES)
     nav_markup = nav(page_dir)
     footer_markup = footer(page_dir)
-    css = html.escape(local_href(page_dir, "/assets/css/editorial.css"), quote=True)
+    css = html.escape(asset_href(page_dir, "/assets/css/editorial.css"), quote=True)
     meta_image = f"{SITE}/images/social/blog-hub.png"
     page = f'''<!DOCTYPE html>
 <html lang="en">
@@ -158,9 +161,9 @@ def write_index(posts: list[dict]) -> None:
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="{SITE}/news">
-  <link rel="icon" href="/assets/brand/relogic-labs-favicon-192.png" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="/assets/brand/relogic-labs-apple-touch-icon.png" sizes="180x180">
-  <link rel="manifest" href="{html.escape(local_href(page_dir, "/site.webmanifest"), quote=True)}">
+  <link rel="icon" href="{html.escape(asset_href(page_dir, "/assets/brand/relogic-labs-favicon-192.png"), quote=True)}" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="{html.escape(asset_href(page_dir, "/assets/brand/relogic-labs-apple-touch-icon.png"), quote=True)}" sizes="180x180">
+  <link rel="manifest" href="{html.escape(asset_href(page_dir, "/site.webmanifest"), quote=True)}">
   <meta name="theme-color" content="#050816">
   <title>News &amp; Blogs · Relogic Labs</title>
   <meta name="description" content="Project notes and studio updates on research, applied AI, business planning and useful decisions.">
@@ -181,9 +184,9 @@ def write_index(posts: list[dict]) -> None:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{html.escape(local_href(page_dir, "/assets/css/tokens.css"), quote=True)}">
-  <link rel="stylesheet" href="{html.escape(local_href(page_dir, "/assets/css/chrome.css"), quote=True)}">
-  <link rel="stylesheet" href="{html.escape(local_href(page_dir, "/assets/css/readability.css"), quote=True)}">
+  <link rel="stylesheet" href="{html.escape(asset_href(page_dir, "/assets/css/tokens.css"), quote=True)}">
+  <link rel="stylesheet" href="{html.escape(asset_href(page_dir, "/assets/css/chrome.css"), quote=True)}">
+  <link rel="stylesheet" href="{html.escape(asset_href(page_dir, "/assets/css/readability.css"), quote=True)}">
   <link rel="stylesheet" href="{css}">
 </head>
 <body class="desk-page">
@@ -227,7 +230,7 @@ def article_page(post: dict) -> str:
     repo = html.escape(post["repo"])
     repo_url = html.escape(post["repo_url"], quote=True)
     share_image = html.escape(post["image"], quote=True)
-    article_image = html.escape(post["index_image"], quote=True)
+    article_image = html.escape(asset_href(page_dir, post["index_image"]), quote=True)
     article_alt = html.escape(post["index_image_alt"], quote=True)
     canonical = f"{SITE}/news/blogs/{slug}"
     body = []
@@ -257,9 +260,9 @@ def article_page(post: dict) -> str:
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="{canonical}">
-  <link rel="icon" href="/assets/brand/relogic-labs-favicon-192.png" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="/assets/brand/relogic-labs-apple-touch-icon.png" sizes="180x180">
-  <link rel="manifest" href="{local("/site.webmanifest")}">
+  <link rel="icon" href="{html.escape(asset_href(page_dir, "/assets/brand/relogic-labs-favicon-192.png"), quote=True)}" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="{html.escape(asset_href(page_dir, "/assets/brand/relogic-labs-apple-touch-icon.png"), quote=True)}" sizes="180x180">
+  <link rel="manifest" href="{html.escape(asset_href(page_dir, "/site.webmanifest"), quote=True)}">
   <meta name="theme-color" content="#050816">
   <title>{title} · Relogic Labs</title>
   <meta name="description" content="{html.escape(post["excerpt"], quote=True)}">
@@ -284,10 +287,10 @@ def article_page(post: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{local("/assets/css/tokens.css")}">
-  <link rel="stylesheet" href="{local("/assets/css/chrome.css")}">
-  <link rel="stylesheet" href="{local("/assets/css/readability.css")}">
-  <link rel="stylesheet" href="{local("/assets/css/editorial.css")}">
+  <link rel="stylesheet" href="{html.escape(asset_href(page_dir, "/assets/css/tokens.css"), quote=True)}">
+  <link rel="stylesheet" href="{html.escape(asset_href(page_dir, "/assets/css/chrome.css"), quote=True)}">
+  <link rel="stylesheet" href="{html.escape(asset_href(page_dir, "/assets/css/readability.css"), quote=True)}">
+  <link rel="stylesheet" href="{html.escape(asset_href(page_dir, "/assets/css/editorial.css"), quote=True)}">
   <script type="application/ld+json">{schema_json}</script>
 </head>
 <body class="desk-page">

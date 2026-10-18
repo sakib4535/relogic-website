@@ -6,6 +6,8 @@ from __future__ import annotations
 import json
 import mimetypes
 import os
+import posixpath
+import re
 import secrets
 from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -18,11 +20,9 @@ LEADS.mkdir(parents=True, exist_ok=True)
 INBOX = LEADS / "inbox.jsonl"
 KEY_FILE = ROOT / "data" / "admin.key"
 
-if KEY_FILE.exists():
-    ADMIN_KEY = KEY_FILE.read_text().strip() or "relogic-admin"
-else:
-    ADMIN_KEY = os.environ.get("RELOGIC_ADMIN_KEY", "relogic-admin")
-    KEY_FILE.write_text(ADMIN_KEY + "\n")
+ADMIN_KEY = os.environ.get("RELOGIC_ADMIN_KEY", "").strip()
+if not ADMIN_KEY and KEY_FILE.exists():
+    ADMIN_KEY = KEY_FILE.read_text(encoding="utf-8").strip()
 
 
 def now_iso() -> str:
@@ -80,8 +80,8 @@ ADMIN_PAGE = """<!DOCTYPE html>
 <body>
 <main>
   <h1>Intake inbox</h1>
-  <p>Submissions from the project form. Sign in with the admin key in data/admin.key.</p>
-  <form method="get" action="/admin">
+  <p>Submissions from the project form. Set <code>RELOGIC_ADMIN_KEY</code> in the server environment before opening this inbox.</p>
+  <form method="post" action="/admin">
     <input type="password" name="key" placeholder="Admin key" required>
     <button type="submit">Open inbox</button>
   </form>
@@ -98,18 +98,17 @@ class RelogicHandler(SimpleHTTPRequestHandler):
 
     def do_OPTIONS(self):
         self.send_response(204)
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
 
     def do_GET(self):
         parsed = urlparse(self.path)
         path = unquote(parsed.path)
+        if self.is_private_path(path):
+            return self.send_error(404, "Not found")
         if path in ("/admin", "/admin/"):
-            return self.admin(parse_qs(parsed.query))
+            return self.admin({})
         if path == "/api/leads":
-            return self.api_leads(parse_qs(parsed.query))
+            return self.api_leads()
         target = self.resolve(path)
         if target:
             qs = f"?{parsed.query}" if parsed.query else ""
@@ -118,6 +117,14 @@ class RelogicHandler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         parsed = urlparse(self.path)
+        if self.is_private_path(unquote(parsed.path)):
+            return self.send_error(404, "Not found")
+        if parsed.path in ("/admin", "/admin/"):
+            length = int(self.headers.get("Content-Length") or 0)
+            if length > 8192:
+                return self.send_error(413, "Form too large")
+            form = parse_qs(self.rfile.read(length).decode("utf-8", errors="replace"))
+            return self.admin(form)
         if parsed.path.rstrip("/") == "/api/intake":
             return self.api_intake()
         self.send_error(404, "Unknown endpoint")
@@ -144,20 +151,23 @@ class RelogicHandler(SimpleHTTPRequestHandler):
         record = save_lead(payload)
         return self.json_response(201, {"ok": True, "id": record["id"], "receivedAt": record["receivedAt"]})
 
-    def authorized(self, query):
+    def authorized(self, form=None):
         header = self.headers.get("X-Admin-Key") or self.headers.get("Authorization", "")
         token = ""
         if header.lower().startswith("bearer "):
             token = header.split(" ", 1)[1]
         elif header:
             token = header
-        if not token:
-            token = (query.get("key") or [""])[0]
-        return token == ADMIN_KEY
+        if not token and form:
+            token = (form.get("key") or [""])[0]
+        return bool(ADMIN_KEY) and secrets.compare_digest(token, ADMIN_KEY)
 
-    def admin(self, query):
-        if not self.authorized(query):
-            return self.html_response(401, ADMIN_PAGE.replace("%CONTENT%", ""))
+    def admin(self, form):
+        if not ADMIN_KEY:
+            unavailable = ADMIN_PAGE.replace("%CONTENT%", "<p>The intake inbox is locked until a server-only admin key is configured.</p>")
+            return self.html_response(503, unavailable)
+        if not self.authorized(form):
+            return self.html_response(401, ADMIN_PAGE.replace("%CONTENT%", "<p>The key was not accepted.</p>"))
         blocks = []
         for row in list_leads():
             payload = row.get("payload") or {}
@@ -174,10 +184,22 @@ class RelogicHandler(SimpleHTTPRequestHandler):
         html = ADMIN_PAGE.replace("%CONTENT%", "".join(blocks) or "<p>No submissions yet.</p>")
         return self.html_response(200, html)
 
-    def api_leads(self, query):
-        if not self.authorized(query):
+    def api_leads(self):
+        if not self.authorized():
             return self.json_response(401, {"ok": False, "error": "unauthorized"})
         return self.json_response(200, {"ok": True, "leads": list_leads()})
+
+    @staticmethod
+    def is_private_path(path):
+        clean = posixpath.normpath("/" + path.replace("\\", "/").lstrip("/")).casefold()
+        if clean == "/data/admin.key" or clean == "/data/leads" or clean.startswith("/data/leads/"):
+            return True
+        basename = clean.rsplit("/", 1)[-1]
+        return (
+            basename.startswith(".env")
+            or basename in {"credentials.json", "google-credentials.json", "token.json"}
+            or bool(re.fullmatch(r"(?:client_secret|credentials|service[_-]?account|authorized_user).*\.json", basename))
+        )
 
     def resolve(self, path):
         if path == "/":
@@ -199,7 +221,6 @@ class RelogicHandler(SimpleHTTPRequestHandler):
         self.send_response(code)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
-        self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
         self.wfile.write(body)
 
@@ -222,16 +243,19 @@ class RelogicHandler(SimpleHTTPRequestHandler):
 
     def end_headers(self):
         self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("X-Frame-Options", "SAMEORIGIN")
+        self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
         SimpleHTTPRequestHandler.end_headers(self)
 
 
 def main():
     mimetypes.add_type("image/svg+xml", ".svg")
     port = int(os.environ.get("PORT", "4173"))
-    server = ThreadingHTTPServer(("0.0.0.0", port), RelogicHandler)
+    server = ThreadingHTTPServer(("127.0.0.1", port), RelogicHandler)
     print("Relogic at http://127.0.0.1:%s/" % port)
     print("Intake POST http://127.0.0.1:%s/api/intake" % port)
-    print("Inbox      http://127.0.0.1:%s/admin?key=%s" % (port, ADMIN_KEY))
+    print("Inbox      http://127.0.0.1:%s/admin (admin key configured: %s)" % (port, "yes" if ADMIN_KEY else "no"))
     server.serve_forever()
 
 
