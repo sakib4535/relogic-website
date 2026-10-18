@@ -221,6 +221,256 @@
       "source": "/digital-product.html",
       "destination": "/projects/",
       "permanent": true
+    },
+    {
+      "source": "/case-studies/agent-relogic/index.html",
+      "destination": "/case-studies/agent-relogic/",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/clintx-engine/index.html",
+      "destination": "/case-studies/clintx-engine/",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/den-agentic-ai/index.html",
+      "destination": "/case-studies/den-agentic-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/foundercmd/index.html",
+      "destination": "/case-studies/foundercmd/",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/index.html",
+      "destination": "/case-studies/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/news/blogs/claims-and-method/index.html",
+      "destination": "/news/blogs/claims-and-method/",
+      "permanent": true
+    },
+    {
+      "source": "/news/blogs/founder-command/index.html",
+      "destination": "/news/blogs/founder-command/",
+      "permanent": true
+    },
+    {
+      "source": "/news/blogs/gaming-signals/index.html",
+      "destination": "/news/blogs/gaming-signals/",
+      "permanent": true
+    },
+    {
+      "source": "/news/blogs/ottoman-text-context/index.html",
+      "destination": "/news/blogs/ottoman-text-context/",
+      "permanent": true
+    },
+    {
+      "source": "/news/blogs/reviewable-systems/index.html",
+      "destination": "/news/blogs/reviewable-systems/",
+      "permanent": true
+    },
+    {
+      "source": "/news/blogs/tracking-data/index.html",
+      "destination": "/news/blogs/tracking-data/",
+      "permanent": true
+    },
+    {
+      "source": "/news/blogs/work-without-borders/index.html",
+      "destination": "/news/blogs/work-without-borders/",
+      "permanent": true
+    },
+    {
+      "source": "/news/index.html",
+      "destination": "/news/",
+      "permanent": true
+    },
+    {
+      "source": "/news/updates/intake-open/index.html",
+      "destination": "/news/updates/intake-open/",
+      "permanent": true
+    },
+    {
+      "source": "/news/updates/media-slot/index.html",
+      "destination": "/news/updates/media-slot/",
+      "permanent": true
+    },
+    {
+      "source": "/news/updates/research-pathways/index.html",
+      "destination": "/news/updates/research-pathways/",
+      "permanent": true
+    },
+    {
+      "source": "/news/updates/selected-work/index.html",
+      "destination": "/news/updates/selected-work/",
+      "permanent": true
+    },
+    {
+      "source": "/people/adnan-rahman/index.html",
+      "destination": "/people/adnan-rahman/",
+      "permanent": true
+    },
+    {
+      "source": "/people/adnan-rahman.html",
+      "destination": "/people/adnan-rahman/",
+      "permanent": true
+    },
+    {
+      "source": "/people/atikul-islam-dipto/index.html",
+      "destination": "/people/atikul-islam-dipto/",
+      "permanent": true
+    },
+    {
+      "source": "/people/atikul-islam-dipto.html",
+      "destination": "/people/atikul-islam-dipto/",
+      "permanent": true
+    },
+    {
+      "source": "/people/dr-tariq-mohammad/index.html",
+      "destination": "/people/dr-tariq-mohammad/",
+      "permanent": true
+    },
+    {
+      "source": "/people/dr-tariq-mohammad.html",
+      "destination": "/people/dr-tariq-mohammad/",
+      "permanent": true
+    },
+    {
+      "source": "/people/Fahim-Shahriar/index.html",
+      "destination": "/people/Fahim-Shahriar/",
+      "permanent": true
+    },
+    {
+      "source": "/people/Fahim-Shahriar.html",
+      "destination": "/people/Fahim-Shahriar/",
+      "permanent": true
+    },
+    {
+      "source": "/people/hasnain-imtiaz/index.html",
+      "destination": "/people/hasnain-imtiaz/",
+      "permanent": true
+    },
+    {
+      "source": "/people/hasnain-imtiaz.html",
+      "destination": "/people/hasnain-imtiaz/",
+      "permanent": true
+    },
+    {
+      "source": "/people/hassan-arif/index.html",
+      "destination": "/people/hassan-arif/",
+      "permanent": true
+    },
+    {
+      "source": "/people/hassan-arif.html",
+      "destination": "/people/hassan-arif/",
+      "permanent": true
+    },
+    {
+      "source": "/people/index.html",
+      "destination": "/people/",
+      "permanent": true
+    },
+    {
+      "source": "/people/robin-jamal/index.html",
+      "destination": "/people/robin-jamal/",
+      "permanent": true
+    },
+    {
+      "source": "/people/robin-jamal.html",
+      "destination": "/people/robin-jamal/",
+      "permanent": true
+    },
+    {
+      "source": "/people/sayem-walid/index.html",
+      "destination": "/people/sayem-walid/",
+      "permanent": true
+    },
+    {
+      "source": "/people/sayem-walid.html",
+      "destination": "/people/sayem-walid/",
+      "permanent": true
+    },
+    {
+      "source": "/people/sazzad-hossain-pranto/index.html",
+      "destination": "/people/sazzad-hossain-pranto/",
+      "permanent": true
+    },
+    {
+      "source": "/people/sazzad-hossain-pranto.html",
+      "destination": "/people/sazzad-hossain-pranto/",
+      "permanent": true
+    },
+    {
+      "source": "/people/shayne-mallet/index.html",
+      "destination": "/people/shayne-mallet/",
+      "permanent": true
+    },
+    {
+      "source": "/people/shayne-mallet.html",
+      "destination": "/people/shayne-mallet/",
+      "permanent": true
+    },
+    {
+      "source": "/people/tahsin-h-khan/index.html",
+      "destination": "/people/tahsin-h-khan/",
+      "permanent": true
+    },
+    {
+      "source": "/people/tahsin-h-khan.html",
+      "destination": "/people/tahsin-h-khan/",
+      "permanent": true
+    },
+    {
+      "source": "/people/tanvir-mehedi/index.html",
+      "destination": "/people/tanvir-mehedi/",
+      "permanent": true
+    },
+    {
+      "source": "/people/tanvir-mehedi.html",
+      "destination": "/people/tanvir-mehedi/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/index.html",
+      "destination": "/projects/",
+      "permanent": true
+    },
+    {
+      "source": "/research/enterprise/index.html",
+      "destination": "/research/enterprise/",
+      "permanent": true
+    },
+    {
+      "source": "/research/index.html",
+      "destination": "/research/",
+      "permanent": true
+    },
+    {
+      "source": "/research/medical/index.html",
+      "destination": "/research/medical/",
+      "permanent": true
+    },
+    {
+      "source": "/research/sme/index.html",
+      "destination": "/research/sme/",
+      "permanent": true
+    },
+    {
+      "source": "/research/startups/index.html",
+      "destination": "/research/startups/",
+      "permanent": true
+    },
+    {
+      "source": "/services/index.html",
+      "destination": "/services/",
+      "permanent": true
     }
   ],
   "rewrites": [
