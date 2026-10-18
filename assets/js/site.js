@@ -1,7 +1,11 @@
 (function relogicSite() {
   "use strict";
 
-  var rawPath = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
+  var siteScript = document.currentScript;
+  var siteRoot = siteScript && siteScript.src ? new URL("../../", siteScript.src).pathname : "/";
+  var rawPath = window.location.pathname || "/";
+  if (rawPath.indexOf(siteRoot) === 0) rawPath = "/" + rawPath.slice(siteRoot.length);
+  rawPath = rawPath.replace(/\/+$/, "") || "/";
   var path = rawPath.toLowerCase();
 
   function sectionOf(p) {

@@ -37,3 +37,10 @@
 .cs-footer-cta p { margin:0; color:#bfd0e0; font-size:15px; line-height:1.65; }
 @media(max-width:900px) { .cs-hero-grid { grid-template-columns:1fr; gap:34px; } .cs-mosaic { width:min(100%,600px); justify-self:center; } .cs-work-head { display:block; } .cs-work-head p { margin-top:12px; } }
 @media(max-width:640px) { .cs-wrap { width:min(100% - 28px,1240px); } .cs-hero { padding:104px 0 30px; } .cs-mosaic { height:210px; gap:7px; } .cs-mosaic figure { border-radius:13px; } .cs-grid { grid-template-columns:1fr; gap:13px; } .cs-copy { min-height:0; padding:19px; } .cs-copy .cs-track { padding-top:14px; } .cs-work { padding:34px 0 70px; } }
+
+.cs-photo-link { display:block; width:100%; height:100%; }
+.cs-photo-link:focus-visible, .cs-copy h3 a:focus-visible, .cs-read-link:focus-visible { outline:2px solid #82efff; outline-offset:4px; border-radius:4px; }
+.cs-copy h3 a { color:inherit; text-decoration:underline; text-decoration-color:rgba(126,240,255,.4); text-decoration-thickness:1px; text-underline-offset:4px; }
+.cs-copy h3 a:hover { color:#b8f4ff; text-decoration-color:#82efff; }
+.cs-read-link { display:inline-flex; align-items:center; gap:8px; align-self:flex-start; margin-top:16px; padding:10px 12px; border:1px solid rgba(126,240,255,.22); border-radius:10px; background:rgba(103,232,249,.06); color:#c6f5ff; font-size:11px; font-weight:800; transition:background .2s ease,border-color .2s ease; }
+.cs-read-link:hover { background:rgba(103,232,249,.13); border-color:rgba(126,240,255,.45); }

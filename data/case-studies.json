@@ -1,0 +1,324 @@
+[
+  {
+    "slug": "den-agentic-ai",
+    "title": "DEN Agentic AI",
+    "track": "Social research intelligence",
+    "status": "Partner build · In development",
+    "kicker": "Partner build / social research intelligence",
+    "summary": "A source-traceable research workspace being built with Canada-based startup DEN Agentic AI. The system is intended to help researchers move from a scoped question to inspectable themes and evidence without losing the context behind each signal.",
+    "audience": "Research teams working with public conversation",
+    "design_goal": "Turn a research brief into a reviewable evidence trail",
+    "image": "https://images.unsplash.com/photo-1758518729711-1cbacd55efdb?auto=format&fit=crop&w=1400&q=85",
+    "og_image": "https://images.unsplash.com/photo-1758518729711-1cbacd55efdb?auto=format&fit=crop&w=1200&h=630&q=85",
+    "image_alt": "A research team working together around a table",
+    "photo_credit": "Vitaly Gariev / Unsplash",
+    "photo_credit_url": "https://unsplash.com/photos/business-people-collaborating-in-a-modern-office-meeting-VRT8k7BJ7wk",
+    "pipeline": [
+      {"title": "Scope", "detail": "Define the question, time window, languages, source set and inclusion rules."},
+      {"title": "Collect", "detail": "Use approved source adapters; retain retrieval time, source URL and connector status."},
+      {"title": "Prepare", "detail": "Normalize records, assess coverage, and flag duplicates or extraction gaps."},
+      {"title": "Analyze", "detail": "Retrieve relevant evidence and propose themes with source-linked spans."},
+      {"title": "Review", "detail": "Let a researcher inspect, correct and export the evidence-backed synthesis."}
+    ],
+    "sections": [
+      {
+        "id": "research-problem",
+        "title": "The research problem",
+        "paragraphs": [
+          "Social research often begins with a broad question and ends with a collection of posts, comments and reports that are difficult to compare. A summary can hide the most important detail: which source supports a theme, how much of the available conversation was sampled, and what the analysis could not observe.",
+          "DEN Agentic AI is being built with a Canada-based startup as a social research intelligence tool. The technical goal is a research workflow that keeps collection scope, source provenance and analyst interpretation attached to every conclusion. It is not designed to treat a generated summary as a substitute for the underlying evidence."
+        ]
+      },
+      {
+        "id": "technical-flow",
+        "title": "A source-first technical flow",
+        "paragraphs": [
+          "The proposed system separates acquisition, analysis and synthesis. Each stage records its inputs and completion state so a researcher can distinguish a real shift in conversation from a change in source coverage or connector behavior."
+        ],
+        "bullets": [
+          "Research brief: store the question, date range, language, source scope, inclusion rules and exclusions as a versioned study configuration.",
+          "Source adapters: ingest only approved public or partner-provided material, preserving the original locator, retrieval timestamp, platform, language and connector outcome.",
+          "Preparation: normalize text and metadata, record duplicate relationships, and surface missing pages, sampling limits and parsing failures instead of silently dropping them.",
+          "Evidence index: make source records and relevant text spans retrievable through keyword and semantic search, with stable identifiers that survive re-indexing.",
+          "Synthesis: have the research agent propose themes and claims that link back to retrieved evidence; route the result to a human reviewer before publication or export."
+        ]
+      },
+      {
+        "id": "agent-boundaries",
+        "title": "Keep the research agent inside a clear boundary",
+        "paragraphs": [
+          "The agent should operate through a small, auditable set of research actions: search the configured corpus, open a source record, compare selected evidence, and draft a synthesis. It should not expand the source set, infer private attributes about contributors, or present a claim without an evidence path.",
+          "Each answer should carry source IDs, quoted or highlighted spans, date coverage and a confidence or limitation note. When the corpus is too small, the source is unavailable, or the evidence conflicts, the workflow should say so and ask for a narrower question or researcher review."
+        ]
+      },
+      {
+        "id": "data-and-governance",
+        "title": "Data contracts, privacy and governance",
+        "paragraphs": [
+          "A practical data model needs separate records for the study brief, source item, source snapshot, extracted text, theme, claim, evidence span, synthesis run and review event. Keeping these entities distinct allows a reviewer to see whether a conclusion came from a source, a transformation or a model-generated interpretation.",
+          "Connector-specific terms, rate limits, permitted retention and takedown requirements must be settled with the partner before collection is enabled. Access controls, retention periods and any handling of personal information should be configured to the approved study policy. This page describes the design direction; it does not claim a completed compliance review or a launched source integration."
+        ]
+      },
+      {
+        "id": "evaluation",
+        "title": "How the system should be evaluated",
+        "paragraphs": [
+          "Evaluation should test the complete research loop, not only a language model in isolation. A representative, reviewer-labelled corpus can establish baselines before the product is asked to support live research decisions."
+        ],
+        "bullets": [
+          "Measure source coverage, connector completeness, retrieval precision and recall, and whether citations actually support the attached claim.",
+          "Compare theme consistency across repeated runs and time windows; stratify results by language, source type and topic where the data permits.",
+          "Track analyst corrections, unresolved claims, review time, latency and cost per study, with failure cases retained for regression evaluation.",
+          "Set release gates with DEN Agentic AI and the research users before publishing performance claims. No benchmark results are being asserted here."
+        ]
+      },
+      {
+        "id": "build-status",
+        "title": "Current build focus",
+        "paragraphs": [
+          "The active engineering decisions are source permissions and connector boundaries, a stable evidence record, and the review surface that lets researchers move from a theme back to the underlying material. The first useful milestone is a small, bounded study that can be repeated and audited end to end."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "agent-relogic",
+    "title": "Agent Relogic",
+    "track": "Custom generative AI · conversation and tasks",
+    "status": "Product build · In development",
+    "kicker": "Product build / conversational task agent",
+    "summary": "A custom generative-AI conversation tool for answering user questions and helping complete practical tasks. Its design separates grounded answers from actions that change a booking or another external record.",
+    "audience": "People who need a reliable answer or a task completed through a conversation",
+    "design_goal": "Move from a clear user intent to a verified answer or confirmed action",
+    "image": "https://images.unsplash.com/photo-1553484771-cc0d9b8c2b33?auto=format&fit=crop&w=1400&q=85",
+    "og_image": "https://images.unsplash.com/photo-1553484771-cc0d9b8c2b33?auto=format&fit=crop&w=1200&h=630&q=85",
+    "image_alt": "A person using a laptop while working through a task",
+    "photo_credit": "Austin Distel / Unsplash",
+    "photo_credit_url": "https://unsplash.com/photos/person-working-on-laptop-WtXcbWXK_ww",
+    "pipeline": [
+      {"title": "Understand", "detail": "Resolve the user’s intent, missing details and task state."},
+      {"title": "Ground", "detail": "Retrieve approved information and check current service data."},
+      {"title": "Prepare", "detail": "Validate a typed action plan against the allowed tool contract."},
+      {"title": "Confirm", "detail": "Show the user the material terms before a consequential action."},
+      {"title": "Verify", "detail": "Execute once, reconcile the result and return a traceable receipt."}
+    ],
+    "sections": [
+      {
+        "id": "conversation-problem",
+        "title": "From conversation to a dependable outcome",
+        "paragraphs": [
+          "A conversational interface is useful when it can do more than produce fluent text. Users may ask a question, compare options, or ask for a task such as booking a ticket. These requests have different risk: an informational answer can be corrected, while an external booking can create a charge or a commitment.",
+          "Agent Relogic is being shaped as a custom generative-AI conversation tool. Its core design rule is to distinguish answering from acting, then make the evidence, required details and action boundary visible to the user."
+        ]
+      },
+      {
+        "id": "task-flow",
+        "title": "A controlled task-execution flow",
+        "paragraphs": [
+          "For a ticket request, the agent should not jump from an open-ended prompt to a booking API call. The system first resolves what the user means, checks live options through approved services and presents a reviewable proposal."
+        ],
+        "bullets": [
+          "Intent and slot resolution: identify the task and collect required fields such as route, date, passenger count and relevant preferences; ask a focused follow-up when a required value is missing.",
+          "Grounded option search: call an allowlisted availability or catalogue service and keep provider results separate from model-generated explanation.",
+          "Action preview: show the selected option, total price, important restrictions, passenger details and any cancellation or change terms before asking for confirmation.",
+          "Confirmation gate: require an explicit user confirmation for the exact action and terms. A changed fare or unavailable option returns to review rather than silently continuing.",
+          "Transaction and receipt: execute through a server-side adapter, use an idempotency key, reconcile timeouts against the provider, and return the confirmed provider status or a clear failure state."
+        ]
+      },
+      {
+        "id": "architecture",
+        "title": "Separate language, policy and transactions",
+        "paragraphs": [
+          "The proposed service boundary has a conversation interface, a session and task-state store, a policy and intent router, a retrieval layer for approved knowledge, and a tool gateway that exposes typed operations to the model. Provider credentials stay in the server-side integration layer; they are never placed in browser code or a model prompt.",
+          "Retrieved text and user-provided content should be treated as untrusted input. Tool authorization must be enforced by the gateway and the user’s permissions, not by an instruction in a prompt. Booking, payment and account changes should use narrowly scoped operations with server-side validation and an audit record."
+        ]
+      },
+      {
+        "id": "recovery-and-trust",
+        "title": "Design for retries, handoff and recovery",
+        "paragraphs": [
+          "External services fail in ways that can leave the user uncertain: a timeout may happen after a provider accepted a request, or a fare may change between search and submission. The integration must distinguish a rejected action from an unknown result and reconcile the latter before inviting the user to retry.",
+          "The user-facing answer should identify its source, state what was actually completed and provide a receipt or next step. If the request exceeds the system’s authority, the source is unavailable or the provider response is ambiguous, route the conversation to a human instead of inventing a successful outcome."
+        ]
+      },
+      {
+        "id": "evaluation",
+        "title": "Evaluation for answers and actions",
+        "paragraphs": [
+          "The answer path and the action path need separate scorecards. A model can explain an option well but still choose the wrong tool arguments; a booking can succeed technically while the conversation fails to collect the right details."
+        ],
+        "bullets": [
+          "For answers: test source-grounding, factual correctness, refusal or escalation behavior and response usefulness on a reviewed query set.",
+          "For tasks: test intent and field extraction, tool selection, argument validity, confirmation behavior, provider-state reconciliation and receipt accuracy.",
+          "Exercise adversarial instructions in retrieved content, duplicate submissions, timeouts, changed availability and partial provider failures.",
+          "Define acceptance thresholds with the product owner before pilot use; no live booking integration or success rate is claimed by this page."
+        ]
+      },
+      {
+        "id": "build-status",
+        "title": "Current build focus",
+        "paragraphs": [
+          "The build should establish one bounded task end to end: clarify missing details, retrieve current options, ask for confirmation, execute through a controlled adapter and verify the result. The same policy and observability layer can then be reused for additional user requests."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "foundercmd",
+    "title": "FounderCMD",
+    "track": "Business mapping · founder decision system",
+    "status": "Model building · In development",
+    "kicker": "Model building / business mapping",
+    "summary": "An evidence-backed command surface for founder-led businesses. FounderCMD is being shaped to map projects, clients, cash, operations and business signals so a decision can be traced back to the operating record behind it.",
+    "audience": "Founders and operators coordinating a growing business",
+    "design_goal": "Connect the business map to a decision without hiding its source data",
+    "image": "https://images.unsplash.com/photo-1783115259399-3a5a3e0e4592?auto=format&fit=crop&w=1400&q=85",
+    "og_image": "https://images.unsplash.com/photo-1783115259399-3a5a3e0e4592?auto=format&fit=crop&w=1200&h=630&q=85",
+    "image_alt": "A business spreadsheet being reviewed on a laptop",
+    "photo_credit": "Gorilla ROI Data Connector / Unsplash",
+    "photo_credit_url": "https://unsplash.com/photos/hands-typing-on-a-laptop-displaying-a-data-spreadsheet-9fZuqBYlV1w",
+    "pipeline": [
+      {"title": "Connect", "detail": "Bring approved business records into a tenant-specific workspace."},
+      {"title": "Map", "detail": "Resolve entities and relationships while retaining source references."},
+      {"title": "Reconcile", "detail": "Apply versioned metric definitions and surface stale or conflicting data."},
+      {"title": "Explore", "detail": "Compare operational signals and scenarios with assumptions made explicit."},
+      {"title": "Decide", "detail": "Present a recommended next step with its evidence and uncertainty."}
+    ],
+    "sections": [
+      {
+        "id": "business-problem",
+        "title": "Map the business before prescribing a move",
+        "paragraphs": [
+          "A founder’s operating picture is usually spread across customer records, project boards, invoices, cash reports, contracts and conversations. A dashboard can aggregate those sources while still failing to explain which record supports a number or whether two systems disagree.",
+          "FounderCMD is being built as a business-mapping model and founder command surface. The product description already frames projects, clients, cash, operations and business signals as one decision space. The technical challenge is to connect those domains without erasing their different owners, update cycles and definitions."
+        ]
+      },
+      {
+        "id": "business-graph",
+        "title": "A canonical business map with provenance",
+        "paragraphs": [
+          "The proposed model connects core entities such as a company, team member, customer, project, contract, invoice, cash event, operational task, metric definition and decision. Relationships should represent the real operating links—for example, which project serves which customer and which invoice records its financial event—rather than only visual dashboard groupings.",
+          "Each imported fact should retain a source system and source record ID, observed time, business-effective time, import time and transformation version. That separation lets the product answer both “what is true now?” and “what did we know when this decision was made?” without quietly overwriting history."
+        ]
+      },
+      {
+        "id": "metrics-and-scenarios",
+        "title": "Keep calculations deterministic and assumptions visible",
+        "paragraphs": [
+          "Financial and operational metrics should be computed from versioned definitions, not improvised by a language model. A metric contract can specify its source fields, formula, currency, time window, exclusions and refresh expectation. When source records conflict or are stale, the interface should show the disagreement and its age.",
+          "Generative analysis can help a founder ask questions of the mapped data, compare scenarios or draft a decision brief. It should cite the records and metric definitions it used, keep scenario assumptions separate from observed facts, and never silently write back to accounting or operating systems."
+        ]
+      },
+      {
+        "id": "tenant-and-data-controls",
+        "title": "Tenant boundaries and operational controls",
+        "paragraphs": [
+          "Business systems contain confidential customer, employee and financial information. The service should isolate each company’s workspace, enforce role-based access at the data and tool layers, keep integration secrets server-side, and log data imports, permission changes and consequential actions.",
+          "Connector coverage, identity matching rules and retention settings must be confirmed with each deployment. Ambiguous records should enter a review queue rather than being merged solely because names look similar. These are design requirements for the build, not a claim that every connector or control is already deployed."
+        ]
+      },
+      {
+        "id": "evaluation",
+        "title": "Measure whether the map is decision-grade",
+        "paragraphs": [
+          "A useful evaluation asks whether the map is complete and current enough for a specific decision. The test set should include known customer, project and financial records, plus deliberately duplicated, late and conflicting examples."
+        ],
+        "bullets": [
+          "Reconcile totals against each designated source of truth and test metric formulas across periods, currencies and edge cases.",
+          "Measure entity-match precision, unresolved-match rates, record freshness and provenance completeness.",
+          "Check whether a user can trace each presented signal to the source record and reproduce the calculation.",
+          "Review decision briefs for grounded claims, explicit assumptions and useful uncertainty; publish no accuracy claim until those checks are run."
+        ]
+      },
+      {
+        "id": "build-status",
+        "title": "Current build focus",
+        "paragraphs": [
+          "The first technical milestone is a narrow business slice with clearly named source systems, a small entity map and a handful of agreed metrics. Once the data contracts reconcile, the decision layer can add question answering and scenario comparison without confusing estimated values with recorded facts."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "clintx-engine",
+    "title": "ClinTx Engine",
+    "track": "Data transaction engine · multimodal data centre",
+    "status": "Data infrastructure · In development",
+    "kicker": "Data infrastructure / clinical multimodal systems",
+    "summary": "A data transaction engine and central multimodal data centre being shaped to receive, validate, link and govern clinical evidence across structured records, documents, images and audio-derived material.",
+    "audience": "Clinical and research teams handling fragmented evidence",
+    "design_goal": "Move multimodal records through a traceable, governed data lifecycle",
+    "image": "https://images.unsplash.com/photo-1666214280577-5f90bc36be92?auto=format&fit=crop&w=1400&q=85",
+    "og_image": "https://images.unsplash.com/photo-1666214280577-5f90bc36be92?auto=format&fit=crop&w=1200&h=630&q=85",
+    "image_alt": "Two medical professionals reviewing information on a screen",
+    "photo_credit": "Accuray / Unsplash",
+    "photo_credit_url": "https://unsplash.com/photos/a-man-and-a-woman-looking-at-a-computer-screen-5sDRGl2PrNM",
+    "pipeline": [
+      {"title": "Receive", "detail": "Accept a source package with an explicit transaction manifest."},
+      {"title": "Validate", "detail": "Check identity, schema, permissions, integrity and required metadata."},
+      {"title": "Preserve", "detail": "Keep source originals immutable and link every derived artifact to its origin."},
+      {"title": "Transform", "detail": "Run OCR, speech or other extraction as versioned, reviewable processing."},
+      {"title": "Govern", "detail": "Expose only authorized records with a complete audit and provenance trail."}
+    ],
+    "sections": [
+      {
+        "id": "clinical-problem",
+        "title": "Treat a data handoff as a transaction",
+        "paragraphs": [
+          "Clinical and research evidence arrives in different forms and from different systems. A file transfer that finishes is not necessarily a valid data transaction: the package may be incomplete, duplicated, linked to the wrong encounter or stripped of the context needed to interpret it.",
+          "ClinTx Engine is being developed as a data transaction engine and central multimodal data centre. Its job is to make each intake, transformation and handoff accountable while preserving the distinction between a source record and a derived interpretation."
+        ]
+      },
+      {
+        "id": "transaction-lifecycle",
+        "title": "An auditable multimodal lifecycle",
+        "paragraphs": [
+          "The proposed intake begins with a transaction manifest that records the source, sender, received time, expected items, data type, schema or format version, integrity checksum and applicable access policy. Processing is idempotent: repeating the same delivery should not silently create a second clinical record or overwrite the original.",
+          "After validation, the system can link structured records and referenced objects to the relevant patient or encounter using an approved matching process. Documents, scans, images, audio and extracted text remain separately identified so that a reviewer can distinguish the original evidence from OCR, speech recognition or another derived artifact."
+        ],
+        "bullets": [
+          "Reject or quarantine a package when required fields, integrity checks, consent state or identity resolution are incomplete.",
+          "Record each transformation with its software/model version, parameters, timestamp and confidence or exception state.",
+          "Keep the original object immutable; store normalized metadata and derived outputs as linked, versioned records.",
+          "Return a transaction receipt with accepted, rejected or pending items and actionable reasons for every exception."
+        ]
+      },
+      {
+        "id": "multimodal-processing",
+        "title": "Multimodal processing without losing context",
+        "paragraphs": [
+          "A central data centre should index clinical metadata and relationships while storing large source objects through a controlled object-storage layer. The exact clinical systems, file formats, hosting region and retention schedule remain integration decisions for the project partners; adapters should not assume a single vendor or a single record format.",
+          "OCR, speech recognition and language normalization can make material easier to search, including bilingual voice data where the project scope requires it. Those outputs must retain links to the source page, image region or audio segment and a confidence indicator. Low-confidence extraction should enter a human review path instead of being treated as verified clinical fact."
+        ]
+      },
+      {
+        "id": "security-and-scope",
+        "title": "Privacy, access and clinical boundaries",
+        "paragraphs": [
+          "The system should enforce least-privilege access, tenant and study boundaries, encrypted transfer and storage, auditable access events, and partner-defined consent and retention rules. Identifiers used for matching should be handled separately from analytic content where the deployment permits that separation.",
+          "ClinTx Engine is described here as data infrastructure, not a diagnostic or treatment recommendation engine. No regulatory approval, production deployment or compliance certification is claimed. Data residency, applicable legal requirements and the exact control framework must be confirmed with the organizations that will supply and use the data."
+        ]
+      },
+      {
+        "id": "evaluation",
+        "title": "Validate the transaction, not just the extraction model",
+        "paragraphs": [
+          "The evaluation plan should cover data preservation, linkage and transaction behavior alongside OCR or speech quality. A highly accurate extractor does not compensate for an incorrect patient match or a missing source record."
+        ],
+        "bullets": [
+          "Test package completeness, checksum integrity, duplicate delivery handling, idempotency and recovery after interrupted transfers.",
+          "Measure identity-link precision and the rate of records routed for manual resolution; false matches should be treated as a high-severity failure.",
+          "Evaluate OCR and speech recognition on partner-approved, representative samples, stratified by modality, language, noise and document quality.",
+          "Audit whether every derived field can be traced to a source object and processing version, and whether access events match the approved policy."
+        ]
+      },
+      {
+        "id": "build-status",
+        "title": "Current build focus",
+        "paragraphs": [
+          "The first engineering milestone is an agreed transaction contract and a controlled pilot with representative but approved data. That will settle the source formats, identity rules, required metadata, error states and review responsibilities before the system expands to additional modalities or workflows."
+        ]
+      }
+    ]
+  }
+]

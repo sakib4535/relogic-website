@@ -209,3 +209,83 @@
   .article .hero-pic { height: 220px; border-radius: 15px; }
   .article .body p { font-size: 15px; }
 }
+
+
+/* News desk visual restoration: layered masthead and editorial cards. */
+.desk-page {
+  background:
+    radial-gradient(ellipse at 86% 1%, rgba(53, 83, 188, .19), transparent 34rem),
+    radial-gradient(ellipse at 8% 35%, rgba(22, 145, 172, .08), transparent 32rem),
+    #050816;
+}
+.desk-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 142px 0 48px;
+  border-bottom: 1px solid rgba(161, 203, 232, .13);
+  background:
+    radial-gradient(ellipse at 82% 43%, rgba(62, 116, 204, .17), transparent 29rem),
+    linear-gradient(112deg, rgba(7, 15, 32, .98), rgba(7, 11, 25, .76) 62%, rgba(12, 13, 32, .92));
+}
+.desk-hero::before,
+.desk-hero::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
+.desk-hero::before {
+  width: 430px; height: 430px; top: -180px; right: max(3vw, calc((100vw - 1240px) / 2));
+  border: 1px solid rgba(125, 231, 255, .17); border-radius: 50%;
+  box-shadow: 0 0 0 34px rgba(125, 231, 255, .035), 0 0 0 86px rgba(173, 143, 255, .035), inset 0 0 80px rgba(44, 113, 190, .09);
+}
+.desk-hero::after {
+  width: 560px; height: 1px; top: 53%; right: -70px;
+  background: linear-gradient(90deg, transparent, rgba(126, 240, 255, .4), rgba(186, 165, 255, .14), transparent);
+  transform: rotate(-34deg);
+}
+.desk-hero .container { position: relative; z-index: 1; }
+.desk-hero .kicker {
+  display: inline-flex; align-items: center; gap: 9px; padding: 8px 11px;
+  border: 1px solid rgba(130, 224, 246, .17); border-radius: 999px;
+  background: rgba(8, 22, 40, .62); color: #a6efff; font-size: 10px; letter-spacing: .17em;
+}
+.desk-hero .kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #76e8ff; box-shadow: 0 0 13px rgba(118, 232, 255, .8); }
+.desk-hero h1 { max-width: 910px; margin-top: 21px; font-size: clamp(40px, 5.4vw, 70px); line-height: 1.02; text-wrap: balance; }
+.desk-hero p { max-width: 690px; color: #c8d7e8; }
+.desk { gap: 20px; margin-top: 28px; }
+.desk .col {
+  border-color: rgba(161, 203, 232, .16); border-radius: 24px;
+  background: linear-gradient(155deg, rgba(15, 27, 48, .96), rgba(7, 12, 25, .97));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .2), inset 0 1px rgba(255, 255, 255, .025);
+}
+.desk .col-head { min-height: 92px; padding: 24px 25px 18px; }
+.desk .col-head h2 { font-size: 30px; }
+.desk .col-head em { color: #a9bfd4; }
+.blog-card, .news-item { transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+.blog-card { grid-template-columns: 148px minmax(0, 1fr); gap: 18px; padding: 19px 23px; }
+.blog-card.featured { grid-template-columns: 1fr; padding: 0 0 18px; }
+.blog-card.featured figure { position: relative; height: clamp(220px, 27vw, 320px); }
+.blog-card.featured figure::after { content: ""; position: absolute; inset: 40% 0 0; background: linear-gradient(180deg, transparent, rgba(4, 10, 21, .36)); pointer-events: none; }
+.blog-card.featured .copy { padding: 21px 25px 7px; }
+.blog-card.featured h3 { max-width: 680px; font-size: clamp(24px, 2.8vw, 33px); line-height: 1.12; }
+.blog-card figure { border-color: rgba(166, 211, 238, .13); }
+.blog-card img, .news-item figure img { display: block; }
+.desk a.blog-card:hover, .desk a.news-item:hover { background: rgba(76, 178, 210, .075); }
+.desk a.blog-card:focus-visible, .desk a.news-item:focus-visible, .desk .news-cta:focus-visible { outline: 2px solid #83eaff; outline-offset: 3px; }
+.news-item { padding: 19px 21px; }
+.news-item figure { border: 1px solid rgba(166, 211, 238, .13); }
+.news-cta { margin-inline: 21px; border-color: rgba(126, 225, 245, .25); background: rgba(13, 35, 54, .3); }
+.news-cta + .news-cta { margin-top: -7px; }
+@media (max-width: 860px) {
+  .desk-hero { padding-top: 122px; }
+  .desk-hero::before { right: -170px; opacity: .75; }
+  .blog-card { grid-template-columns: 136px minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .desk-hero { padding: 114px 0 32px; }
+  .desk-hero h1 { max-width: 590px; font-size: clamp(35px, 9vw, 48px); }
+  .desk-hero::before { width: 300px; height: 300px; top: -176px; right: -195px; }
+  .desk-hero::after { top: 36%; right: -260px; }
+  .desk { gap: 14px; margin-top: 18px; }
+  .desk .col { border-radius: 20px; }
+  .desk .col-head { min-height: auto; }
+  .blog-card { grid-template-columns: 1fr; }
+  .blog-card.featured figure { height: 190px; }
+}
