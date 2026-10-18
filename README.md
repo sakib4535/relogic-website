@@ -11,12 +11,23 @@ The site keeps its dark studio identity, home-page carousel, research and produc
 | `/research/` | Research consultancy |
 | `/research/medical/`, `/research/startups/`, `/research/enterprise/` | Research desks |
 | `/projects/` | Digital products |
-| `/case-studies/` | Image-led case studies for four models in build |
+| `/case-studies/` | Image-led directory for four models in build |
+| `/case-studies/<slug>/` | Technical case study for DEN Agentic AI, Agent Relogic, FounderCMD or ClinTx Engine |
 | `/people/`, `/people/<slug>/` | Team directory and profiles |
 | `/news/` or `/news` | Field Notes and studio updates |
 | `/news/blogs/<slug>/` | Project-led articles |
 
 The four case-study tracks are DEN Agentic AI, Agent Relogic, FounderCMD and ClinTx Engine. Article inspiration and source repositories are linked on each Field Note page.
+
+## Case-study pages
+
+Edit `data/case-studies.json` and rebuild the four technical write-ups with:
+
+```bash
+python3 src/build_case_studies.py
+```
+
+The write-ups describe the current technical direction for active builds and do not claim unmeasured results.
 
 ## Editorial updates
 

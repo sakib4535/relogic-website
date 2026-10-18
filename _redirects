@@ -14,6 +14,7 @@
 /people                /people/index.html                200
 /research              /research/index.html              200
 /case-studies          /case-studies/index.html          200
+/case-studies/:slug    /case-studies/:slug/index.html         200
 /research/medical      /research/medical/index.html      200
 /research/startups     /research/startups/index.html     200
 /research/enterprise   /research/enterprise/index.html   200
@@ -23,3 +24,33 @@
 
 /news/blogs/:slug       /news/blogs/:slug/index.html       200
 /news/updates/:slug     /news/updates/:slug/index.html     200
+
+# Older shared service URLs and bookmarks
+/startups  /research/startups/  301
+/startups/  /research/startups/  301
+/startups.html  /research/startups/  301
+/startups/index.html  /research/startups/  301
+/startups/index  /research/startups/  301
+/sme  /research/sme/  301
+/sme/  /research/sme/  301
+/sme.html  /research/sme/  301
+/sme/index.html  /research/sme/  301
+/sme/index  /research/sme/  301
+/enterprise  /research/enterprise/  301
+/enterprise/  /research/enterprise/  301
+/enterprise.html  /research/enterprise/  301
+/enterprise/index.html  /research/enterprise/  301
+/enterprise/index  /research/enterprise/  301
+/medical  /research/medical/  301
+/medical/  /research/medical/  301
+/medical.html  /research/medical/  301
+/medical/index.html  /research/medical/  301
+/medical/index  /research/medical/  301
+/people.html  /people/  301
+/services.html  /services/  301
+/research.html  /research/  301
+/projects.html  /projects/  301
+/digital-product.html  /projects/  301
+/digital-product  /projects/  301
+/news.html  /news/  301
+/research/sme  /research/sme/index.html  200
